@@ -1,220 +1,61 @@
-# Ramadan-related content
+# رمضانك (Ramadanak)
 
+باندل صفحة هبوط لرمضان والعيد على سلة. نوعه Component Bundle، وفيه `"features": ["landing-page-templates"]`.
+متبني على أساس «مفرشك» (شرح المعمارية في `docs/ARCHITECTURE.md` في `tw-your-perfume`)، والـ prefix هنا `rm-`.
+الأفكار ومصادرها في `docs/ideas.md`.
 
+## الأقسام (15)
 
-This starter kit provides a foundation for building custom Twilight components for Salla's e-commerce platform. It includes a pre-configured build setup and development environment to help you get started quickly.
+| القسم | المجلد | بيعمل إيه |
+|---|---|---|
+| رأس الصفحة | `page-header` | اللوجو، والروابط، والوضع الداكن، و"لون البراند" |
+| واجهة رمضان | `ramadan-hero` | صور في أقواس، وهلال وفوانيس، والتاريخ الهجري و"اليوم 14 من رمضان". النصوص بتتغير مع المرحلة: قبل رمضان، وفي رمضان، والعشر الأواخر، والعيد. بتنشر المرحلة لباقي الأقسام |
+| مواقيت الإمساك والإفطار | `prayer-bar` | مدينة العميل، والفجر والمغرب، وعداد للإفطار أو الإمساك |
+| عداد رمضان بهدية | `countdown-gift` | شريط أو زرار عائم أو نافذة. قبل رمضان عداد لأول رمضان، وفي رمضان عرض اليوم، وفي العيد عيدية. ممكن الكود يظهر بعد المغرب بس |
+| لحظات رمضان | `moments-shop` | دوائر: السحور، والإفطار، والتراويح، والعيد. لحظة الوقت الحالي بتفتح لوحدها في رمضان |
+| باقات رمضان | `ramadan-bundle` | منتج الباقة، واللي فيها، والسعر، وزر واحد |
+| للعيلة كلها | `family-shop` | تبويبات نسائي ورجالي وأطفال |
+| بطاقة اليوم | `daily-card` | دعاء اليوم، و"صيامك اليوم؟"، وهدية وكود اليوم. في رمضان بس |
+| أثر الصدقة | `sadaqah` | النسبة، والجهة، والمبلغ اللي التاجر بيكتبه ويحدّثه |
+| آخر القطع | `last-pieces` | شارة "آخر القطع"، و"باقي X" لو الكمية ظاهرة، وشريط "اطلب قبل 24 رمضان" |
+| شريط الثقة، والتقييمات، والأسئلة، والتذييل، وشريط الشراء | `trust-strip`، `reviews`، `faq`، `page-footer`، `sticky-buy` | من «مفرشك» |
 
-## Getting Started
+"اطلبها هدية" تحت كل منتج في لحظات رمضان والعيلة والباقات وآخر القطع: بيفتح واتساب برسالة فيها المنتج ورابط الصفحة.
 
-1. Clone this repository
-2. Remove the example components in `src/components/` using:
-   ```
-   tw-delete-component
-   ```
-3. Create your own components using the component generator:
-   ```
-   tw-create-component <component-name>
-   ```
-4. Run `pnpm install` to install dependencies
-5. Run `pnpm run dev` to start the development server
-6. Run `pnpm run build` to build your components for production
+**قواعد مهمة:**
+- **التاريخ الهجري** (`src/utils/hijri.ts`) من تقويم أم القرى في المتصفح نفسه (`Intl` بـ `islamic-umalqura`)، فالصفحة بتشتغل كل سنة لوحدها. التاجر يقدّم أو يأخّر يوم من واجهة رمضان لو الرؤية اختلفت.
+- **مواقيت الصلاة** (`src/utils/prayer.ts`) بتتحسب في المتصفح من موقع الشمس بزاوية أم القرى للفجر (18.5°). مطابقة للتقويم المنشور في حدود دقيقة (الرياض 31 أغسطس 2026: 04:14 و18:13، والمنشور 04:13 و18:13). مكتوب جنبها "تقريبية".
+- **الأكواد** بتظهر للعملاء بس لما التاجر يفعّل "عملت الأكواد دي في سلة". في المحرر بتظهر دايماً.
+- **أثر الصدقة**: كل الأرقام التاجر بيكتبها. القسم مش بيحسب ولا بيقدّر أي مبلغ.
+- **السلة الجانبية** من «الجمعة البيضاء» و«مفرشك»، بنفس الطريقة (`addItem` و`details` و`deleteItem`، و`checkout()`).
 
-## Project Structure
+## القوالب (3)
 
-```
-src/
-  components/
-    your-component-name/
-      index.ts        # Main component file
-      styles.ts       # Component styles (optional)
-      types.ts        # Component types (optional)
-```
+| القالب | الفكرة | لون البراند | التصنيف |
+|---|---|---|---|
+| `ramadan-nights` (الافتراضي) | داكن كحلي وذهبي، والمعاينة في رمضان | `#c9973f` | الاكسسوارات والهدايا |
+| `iftar-table` | فاتح، والسفرة والباقات في الأول | `#a8662f` | أغذية وتموينات |
+| `eid-joy` | أخضر، والمعاينة في العشر الأواخر، والعيلة وآخر القطع في الأول | `#1f7a5a` | ازياء |
 
-## Built-in Plugins
+المنتجات من متجر المعاينة `1616473` (منتجات أزياء تجريبية)، والصور من Burst المجانية في branch `store-assets` (`img/` و`CREDITS.md`).
 
-This starter kit includes three Vite plugins that handle the build process:
-
-### 1. Transform Plugin (`sallaTransformPlugin`)
-- Transforms component files to ensure proper naming and registration
-- Matches components in `src/components/*/index.ts`
-- To disable: Remove from `vite.config.ts` plugins array
-
-### 2. Build Plugin (`sallaBuildPlugin`)
-- Handles component bundling and output
-- Creates individual files for each component in `dist/`
-- Configures external dependencies (lit libraries)
-- To customize: Remove from plugins array and configure your own build settings:
-  ```typescript
-  {
-    build: {
-      lib: {
-        entry: {/* your entries */},
-        formats: ['es'],
-        fileName: (format, entryName) => `${entryName}.js`
-      },
-      rollupOptions: {
-        external: [/^lit/],
-        output: {/* your output config */}
-      }
-    }
-  }
-  ```
-
-### 3. Demo Plugin (`sallaDemoPlugin`)
-- Provides a development environment for testing components
-- Creates a demo page with your components
-- Configures hot module reloading
-- To disable: Remove from plugins array and set up your own dev server
-
-### Demo Plugin Options
-
-The `sallaDemoPlugin` accepts the following configuration options:
-
-```typescript
-{
-  // Optional: Show only specific components
-  components?: string[];
-
-  // Optional: Customize the demo grid layout
-  grid?: {
-    // CSS grid-template-columns value
-    columns?: string;     // default: 'repeat(auto-fill, minmax(300px, 1fr))'
-    
-    // Gap between components
-    gap?: string;        // default: '1rem'
-    
-    // Responsive breakpoint
-    minWidth?: string;   // default: '300px'
-  };
-
-  // Optional: Add custom CSS
-  css?: string;
-
-  // Optional: Add custom JavaScript
-  js?: string;
-}
-```
-
-#### Example Configuration
-
-```typescript
-// vite.config.ts
-export default defineConfig({
-  plugins: [
-    // ... other plugins
-    sallaDemoPlugin({
-      // Show only specific components
-      components: ['product-card', 'scroll-top'],
-      
-      // Customize grid layout
-      grid: {
-        columns: 'repeat(3, 1fr)',
-        gap: '1.5rem',
-        minWidth: '768px'
-      },
-
-      // Add custom styles
-      css: `
-        .component-card {
-          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-          transition: transform 0.2s;
-        }
-        .component-card:hover {
-          transform: translateY(-2px);
-        }
-      `,
-
-      // Add custom JavaScript
-      js: `
-        console.log('Demo page loaded!');
-        // Add your custom JavaScript here
-      `
-    })
-  ]
-});
-```
-
-## Component Management
-
-### Creating New Components
-
-This starter kit includes a component generator to help you create new components quickly. To use it, run:
+## التشغيل
 
 ```bash
-pnpm tw-create-component <component-name>
+pnpm install
+pnpm test && pnpm typecheck && pnpm build
+npx vite --port 5193
+# http://127.0.0.1:5193/harness/landing.html?template=ramadan-nights&landing=0
+node scripts/capture.mjs   # الصور المصغرة وصور متجر الثيمات
 ```
 
-Or run without arguments for interactive mode:
+## حجم الباندل
 
-```bash
-pnpm tw-create-component
-```
+الحد 1 MB لما سلة تضغط الريبو. صور متجر الثيمات، والأيقونة، واللوجو، والصور المصغرة، وصور القوالب في branch `store-assets` بس.
+قبل `tw-preview` هات الصور المصغرة: `git checkout store-assets -- templates-thumbs && git restore --staged templates-thumbs`.
+اتأكد بعد أي تعديل: `git archive --format=zip HEAD | wc -c` لازم يفضل أقل من 1000000.
 
-The generator will:
-1. Prompt you for a component name (in kebab-case format)
-2. Validate that the name is in kebab-case and doesn't already exist
-3. Create a new component folder with an `index.ts` file
-4. Add the component definition to `twilight-bundle.json`
+## محتاج تجربة على متجر حقيقي
 
-### Deleting Components
-
-To remove a component, use:
-
-```bash
-pnpm tw-delete-component <component-name>
-```
-
-Or run without arguments to see a list of available components:
-
-```bash
-pnpm tw-delete-component
-```
-
-This will:
-1. Show a list of available components to select from
-2. Ask for confirmation before deletion
-3. Remove the component folder from `src/components/`
-4. Remove the component definition from `twilight-bundle.json`
-
-## Component Requirements
-
-Each component should:
-1. Be a class that extends `LitElement`
-2. Export the class as default
-3. Be placed in its own directory under `src/components/`
-4. Have an `index.ts` as the entry point
-
-Example:
-```typescript
-import { css, html, LitElement } from 'lit';
-import { property } from 'lit/decorators.js';
-
-export default class MyComponent extends LitElement {
-  @property({ type: Object })
-  config?: {
-    name: string;
-    //... other properties
-  };
-
-  static styles = css`/* your styles */`;
-
-  render() {
-    return html`<div>Hello ${this.config?.name || 'World'}!</div>`;
-  }
-}
-```
-
-## Building for Production
-
-Run `pnpm run build` to create production-ready bundles in the `dist/` directory. Each component will have its own file named after the component (e.g., `my-component.js`).
-
-## Development
-
-Run `pnpm run dev` to start the development server. This will:
-1. Create a demo page with all your components
-2. Enable hot module reloading
-3. Provide a development environment for testing
-
-## License
-
-MIT
+- الحذف من السلة الجانبية، و"إتمام الطلب" للمسجّل وغير المسجّل (زي «الجمعة البيضاء»).
+- إن التاريخ الهجري في أول رمضان مطابق للرؤية، وإلا التاجر يغيّر "تقديم أو تأخير يوم".
