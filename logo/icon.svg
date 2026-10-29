@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#1f2a44"/>
+  <circle cx="512" cy="512" r="380" fill="#26345a"/>
+  <!-- A crescent holding a small hanging lantern, with two stars -->
+  <circle cx="470" cy="500" r="250" fill="#e2b45c"/>
+  <circle cx="565" cy="450" r="225" fill="#26345a"/>
+  <path d="M640 330v70" stroke="#e2b45c" stroke-width="10"/>
+  <g fill="#e2b45c">
+    <circle cx="640" cy="404" r="14"/>
+    <path d="M608 424h64l12 22h-88z"/>
+    <path d="M600 452h80l-8 112h-64z" opacity=".5"/>
+    <path d="M592 572h96l-14 28h-68z"/>
+    <circle cx="640" cy="626" r="10"/>
+  </g>
+  <path d="M600 452h80l-8 112h-64zM622 466v84M640 462v92M658 466v84" fill="none" stroke="#e2b45c" stroke-width="8"/>
+  <path d="M760 300l10 28 28 10-28 10-10 28-10-28-28-10 28-10z" fill="#f3dfae"/>
+  <path d="M330 270l7 19 19 7-19 7-7 19-7-19-19-7 19-7z" fill="#f3dfae"/>
+</svg>
