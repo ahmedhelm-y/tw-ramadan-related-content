@@ -5455,24 +5455,27 @@
             "path": "templates.ramadan-nights",
             "category_id": "915304371",
             "primary_color": "",
-            "thumbnail": "templates-thumbs/ramadan-nights.jpg",
-            "is_default": true
+            "thumbnail": "https://cdn.assets.salla.network/previews/ee1jh7bf1g1j/assets/cb61d205335b75e2b15189d9ce0a7b820af29d2e756eeed14ca784d4a145999d/templates-thumbs/ramadan-nights.jpg",
+            "is_default": true,
+            "public_preview_url": "https://salla.design/preview/s/ee1jh7bf1g1j/ramadan-nights"
         },
         {
             "id": "6a2e9c41-0b7d-4f3a-8e25-b1d4c7f90a62",
             "path": "templates.iftar-table",
             "category_id": "1337421468",
             "primary_color": "",
-            "thumbnail": "templates-thumbs/iftar-table.jpg",
-            "is_default": false
+            "thumbnail": "https://cdn.assets.salla.network/previews/ee1jh7bf1g1j/assets/93790b4fb4c118b7496ffd8b60fc6b4b807c3ea5b7f980b60a14b92cb17304f9/templates-thumbs/iftar-table.jpg",
+            "is_default": false,
+            "public_preview_url": "https://salla.design/preview/s/ee1jh7bf1g1j/iftar-table"
         },
         {
             "id": "c3f58a07-2d61-4e9b-a7c4-5e0b8d1f6293",
             "path": "templates.eid-joy",
             "category_id": "814202285",
             "primary_color": "",
-            "thumbnail": "templates-thumbs/eid-joy.jpg",
-            "is_default": false
+            "thumbnail": "https://cdn.assets.salla.network/previews/ee1jh7bf1g1j/assets/66c6dfdf695cd8a7ea7e602147b1a59d58bddf4e2c0a119ff08d111a5165d8c3/templates-thumbs/eid-joy.jpg",
+            "is_default": false,
+            "public_preview_url": "https://salla.design/preview/s/ee1jh7bf1g1j/eid-joy"
         }
     ]
 }
