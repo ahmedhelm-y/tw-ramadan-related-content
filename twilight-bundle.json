@@ -1,14 +1,14 @@
 {
     "name": {
-        "ar": "رمضانك",
-        "en": "Ramadanak"
+        "ar": "رمضانيات",
+        "en": "Ramadan-related content"
     },
     "description": {
-        "ar": "صفحة هبوط لرمضان والعيد تتغير مع التاريخ الهجري، بمواقيت الإفطار وعداد الهدية ولحظات رمضان",
-        "en": "A Ramadan and Eid landing page that follows the Hijri date, with iftar times, a gift countdown and Ramadan moments"
+        "ar": null,
+        "en": null
     },
     "author_email": "ahmedhelmy2722@gmail.com",
-    "support_url": "https://badeehah.com",
+    "support_url": null,
     "repository": "https://github.com/ahmedhelm-y/tw-ramadan-related-content",
     "features": [
         "landing-page-templates"
