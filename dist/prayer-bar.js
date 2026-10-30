@@ -3,7 +3,7 @@ import { state as g } from "lit/decorators.js";
 import { l as u, r as v, t as a } from "./styles-Bs7TKm5O.js";
 import { s as y, C as l, d as w, n as $, b as x, c as f, h as C, a as k } from "./prayer-5zE4Yu9W.js";
 import { p as I, c as z, i as j, s as E } from "./season-DLTLY4O1.js";
-import { R as S } from "./section-CceEqpTO.js";
+import { R as S } from "./section-DUtzCvhS.js";
 var L = Object.defineProperty, h = (p, e, s, i) => {
   for (var r = void 0, t = p.length - 1, n; t >= 0; t--)
     (n = p[t]) && (r = n(e, s, r) || r);

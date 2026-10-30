@@ -1,6 +1,6 @@
 import { nothing as m, html as r } from "lit";
 import { g as n, r as s, i as l, t as o } from "./styles-Bs7TKm5O.js";
-import { R as f } from "./section-CceEqpTO.js";
+import { R as f } from "./section-DUtzCvhS.js";
 const d = `
 .rm-fq__list { display: grid; gap: .5rem; max-width: 52rem; margin-inline: auto; }
 .rm-fq__list details { border-radius: 1rem; background: var(--rm-card); }

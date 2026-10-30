@@ -203,7 +203,7 @@ describe("buy", () => {
   it("tracks the purchase with the bundle source", async () => {
     const salla = setupSalla({ settings: productPage() });
     await buy({ quantity: 1 });
-    expect(salla.analytics.track).toHaveBeenCalledWith("Buy Now", expect.objectContaining({ source: "ramadanak", quantity: 1 }));
+    expect(salla.analytics.track).toHaveBeenCalledWith("Buy Now", expect.objectContaining({ source: "ramadaniyat", quantity: 1 }));
   });
 });
 

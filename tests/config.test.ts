@@ -59,7 +59,7 @@ describe("anchorId", () => {
 
 describe("webUrl", () => {
   it("adds https to a bare domain", () => {
-    expect(webUrl("instagram.com/ramadanak")).toBe("https://instagram.com/ramadanak");
+    expect(webUrl("instagram.com/ramadaniyat")).toBe("https://instagram.com/ramadaniyat");
   });
 
   it("keeps web, mail and phone links", () => {

@@ -1,4 +1,4 @@
-// Template content for the three Ramadanak templates. Products come from the preview store (1616473), which
+// Template content for the three Ramadaniyat templates. Products come from the preview store (1616473), which
 // holds sample fashion products; the photos are free Burst photos kept on the store-assets branch, and the
 // texts are written for Ramadan. Sample codes never reach shoppers until the merchant turns on "codes_ready".
 import { L, opt } from "./fields.mjs";

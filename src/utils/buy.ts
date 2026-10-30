@@ -90,7 +90,7 @@ function track(req: BuyRequest, kind: BuyResult["kind"], quantity: number): void
   try {
     const product = req.product;
     Salla?.analytics?.track("Buy Now", {
-      source: "ramadanak",
+      source: "ramadaniyat",
       action: kind,
       product_id: product?.id ? String(product.id) : landingProductId(),
       items: req.items?.length || 1,

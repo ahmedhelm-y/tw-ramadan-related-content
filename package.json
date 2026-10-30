@@ -1,7 +1,7 @@
 {
     "name": "tw-ramadan-related-content",
     "version": "1.0.0",
-    "description": "Ramadanak: Ramadan and Eid landing page components and templates for Salla landing pages",
+    "description": "Ramadaniyat: Ramadan and Eid landing page components and templates for Salla landing pages",
     "type": "module",
     "scripts": {
         "dev": "vite",

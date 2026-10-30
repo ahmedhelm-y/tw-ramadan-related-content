@@ -1,7 +1,7 @@
 import { nothing as s, html as e } from "lit";
 import { g as o, r as n, i as p, t as l, u as c } from "./styles-Bs7TKm5O.js";
 import { p as g } from "./season-DLTLY4O1.js";
-import { R as _ } from "./section-CceEqpTO.js";
+import { R as _ } from "./section-DUtzCvhS.js";
 const u = `
 .rm-ts__badges { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr)); gap: .75rem; }
 .rm-ts__badges--pattern { position: relative; padding: 1rem; border-radius: 1.25rem; isolation: isolate; }

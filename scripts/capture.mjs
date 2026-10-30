@@ -15,6 +15,13 @@ async function shoot(browser, query, width, height, act) {
   await page.goto(`${BASE}?clean=1&filler=0&layout=none&landing=0&${query}`, { waitUntil: "load", timeout: 60000 });
   await page.waitForTimeout(9000);
   if (act) await act(page);
+  // A short page leaves the rest of the shot white; paint it with the page's own background instead
+  await page.evaluate(() => {
+    const block = document.querySelector(".rm-block");
+    let el = block, bg = "";
+    while (el && (!bg || bg === "rgba(0, 0, 0, 0)")) { bg = getComputedStyle(el).backgroundColor; el = el.parentElement; }
+    if (bg) document.documentElement.style.background = document.body.style.background = bg;
+  });
   const png = await page.screenshot();
   await page.close();
   return png;

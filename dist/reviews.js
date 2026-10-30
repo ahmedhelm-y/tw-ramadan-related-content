@@ -1,7 +1,7 @@
 import { html as s, nothing as l } from "lit";
 import { state as v } from "lit/decorators.js";
 import { g as y, r as d, t as m } from "./styles-Bs7TKm5O.js";
-import { R as w } from "./section-CceEqpTO.js";
+import { R as w } from "./section-DUtzCvhS.js";
 const _ = 0.2;
 function $(n) {
   const r = n.map(Number).filter((t) => Number.isInteger(t) && t >= 1 && t <= 5), e = [5, 4, 3, 2, 1].map((t) => r.filter((i) => i === t).length);

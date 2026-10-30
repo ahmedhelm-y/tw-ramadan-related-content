@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ramadanak landing harness</title>
+  <title>Ramadaniyat landing harness</title>
   <!-- Same bootstrap as theme-landing-page: lit from an import map, Twilight, the bundles core and Tailwind's reset -->
   <script type="importmap">{ "imports": { "lit": "https://esm.run/lit", "lit/": "https://esm.run/lit/" } }</script>
   <script src="https://cdn.tailwindcss.com/3.4.16"></script>
@@ -110,10 +110,10 @@
         const [prefix, name, field] = key.split(".");
         if (prefix === "c" && name === component.name && field in values) values[field] = value;
       }
-      const wrapper = { component: values, key: component.key, path: "bundle-component", component_name: component.name, bundle_id: "ramadanak-local" };
+      const wrapper = { component: values, key: component.key, path: "bundle-component", component_name: component.name, bundle_id: "ramadaniyat-local" };
       const el = document.createElement("salla-custom-component");
       el.setAttribute("component-name", component.name);
-      el.setAttribute("bundle-id", "ramadanak-local");
+      el.setAttribute("bundle-id", "ramadaniyat-local");
       el.setAttribute("assets", fromRoot(`dist/${component.name}.js`));
       el.setAttribute("config", JSON.stringify(wrapper));
       // Page length to scroll through before the footer, so sticky parts can be checked

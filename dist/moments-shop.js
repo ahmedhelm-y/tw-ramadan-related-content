@@ -1,4 +1,4 @@
-import { T as s } from "./tabs-D-EOSn4q.js";
+import { T as s } from "./tabs-CGIAPdFZ.js";
 class o extends s {
   constructor() {
     super(...arguments), this.styleId = "moments-shop", this.look = "round";

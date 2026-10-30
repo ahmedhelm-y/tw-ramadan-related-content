@@ -42,7 +42,7 @@ function B(t, n, e) {
   try {
     const o = t.product;
     (r = i == null ? void 0 : i.analytics) == null || r.track("Buy Now", {
-      source: "ramadanak",
+      source: "ramadaniyat",
       action: n,
       product_id: o != null && o.id ? String(o.id) : k(),
       items: ((c = t.items) == null ? void 0 : c.length) || 1,

@@ -2,7 +2,7 @@ import { nothing as e, html as r } from "lit";
 import { unsafeHTML as g } from "lit/directives/unsafe-html.js";
 import { r as o, i as f, t, w as u, n as h } from "./styles-Bs7TKm5O.js";
 import { p as v, c as b } from "./season-DLTLY4O1.js";
-import { R as q } from "./section-CceEqpTO.js";
+import { R as q } from "./section-DUtzCvhS.js";
 const y = `
 .rm-sq__card { display: grid; gap: 1.25rem; padding: 1.75rem 1.5rem; border-radius: 1.5rem; background: var(--rm-card); }
 @container (min-width: 820px) { .rm-sq__card { grid-template-columns: 1.2fr 1fr; align-items: center; gap: 2.5rem; padding: 2.25rem; } }

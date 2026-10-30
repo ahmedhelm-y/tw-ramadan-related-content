@@ -1,4 +1,4 @@
-# رمضانك (Ramadanak)
+# رمضانيات (Ramadaniyat)
 
 باندل صفحة هبوط لرمضان والعيد على سلة. نوعه Component Bundle، وفيه `"features": ["landing-page-templates"]`.
 متبني على أساس «مفرشك» (شرح المعمارية في `docs/ARCHITECTURE.md` في `tw-your-perfume`)، والـ prefix هنا `rm-`.

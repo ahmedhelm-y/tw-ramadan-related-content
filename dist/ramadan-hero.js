@@ -2,7 +2,7 @@ import { nothing as n, html as i } from "lit";
 import { state as f } from "lit/decorators.js";
 import { u, r as o, k as g, l as v, t as c } from "./styles-Bs7TKm5O.js";
 import { d as b, s as w, r as $, l as y, c as d, h as x, b as k } from "./season-DLTLY4O1.js";
-import { R } from "./section-CceEqpTO.js";
+import { R } from "./section-DUtzCvhS.js";
 var C = Object.defineProperty, S = (h, r, e, t) => {
   for (var a = void 0, l = h.length - 1, s; l >= 0; l--)
     (s = h[l]) && (a = s(r, e, a) || a);
