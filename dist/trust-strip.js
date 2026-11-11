@@ -1,7 +1,7 @@
-import { nothing as s, html as e } from "lit";
-import { g as o, r as n, i as p, t as l, u as c } from "./styles-Bs7TKm5O.js";
-import { p as g } from "./season-DLTLY4O1.js";
-import { R as _ } from "./section-DUtzCvhS.js";
+import { nothing as r, html as e } from "lit";
+import { g as o, r as m, i as p, t as l, u as c } from "./styles-BzE_GqTJ.js";
+import { p as g } from "./season-CqOYjCzR.js";
+import { R as _ } from "./section-DHdMqSpN.js";
 const u = `
 .rm-ts__badges { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr)); gap: .75rem; }
 .rm-ts__badges--pattern { position: relative; padding: 1rem; border-radius: 1.25rem; isolation: isolate; }
@@ -29,15 +29,16 @@ class d extends _ {
     return u + g;
   }
   render() {
-    const a = this.cfg(), i = o(a.badges, "badges").map((t) => ({ icon: String(t.icon || "sicon-check"), text: n(t.text) })).filter((t) => t.text), r = o(a.steps, "steps").map((t) => ({ title: n(t.title), text: n(t.text), image: String(t.image || "") })).filter((t) => t.title);
-    if (!i.length && !r.length)
-      return p() ? s : this.frame(e`<p class="rm-ts__empty">${l({ ar: "أضف المميزات أو خطوات الصناعة من إعدادات هذا القسم", en: "Add badges or steps in this section's settings" })}</p>`);
-    const m = c(a.layout) === "compact" && !r.length;
+    const a = this.cfg(), i = o(a.badges, "badges").map((t) => ({ icon: String(t.icon || "sicon-check"), text: m(t.text) })).filter((t) => t.text), s = o(a.steps, "steps").map((t) => ({ title: m(t.title), text: m(t.text), image: String(t.image || "") })).filter((t) => t.title);
+    if (!i.length && !s.length)
+      return p() ? r : this.frame(e`<p class="rm-ts__empty">${l({ ar: "أضف المميزات أو خطوات الصناعة من إعدادات هذا القسم", en: "Add badges or steps in this section's settings" })}</p>`);
+    const n = c(a.layout) === "compact" && !s.length;
     return this.frame(e`
-      ${i.length ? e`<div class=${`rm-ts__badges${a.pattern === !1 ? "" : " rm-ts__badges--pattern"}`}>${i.map((t) => e`<div class="rm-ts__badge"><i class=${t.icon} aria-hidden="true"></i><span>${t.text}</span></div>`)}</div>` : s}
-      ${r.length ? e`<ol class="rm-ts__steps" style=${`--rm-ts-cols:${Math.min(r.length, 4)}`}>${r.map((t) => e`<li class="rm-ts__step">
-            ${t.image ? e`<img src=${t.image} alt="" loading="lazy" />` : s}
-            <h3>${t.title}</h3>${t.text ? e`<p>${t.text}</p>` : s}</li>`)}</ol>` : s}`, { extraClass: `rm-ts${m ? " rm-ts--compact" : ""}`, title: !m });
+      ${i.length ? e`<div class=${`rm-ts__badges${a.pattern === !1 ? "" : " rm-ts__badges--pattern"}`}>${i.map((t) => e`<div class="rm-ts__badge"><i class=${t.icon} aria-hidden="true"></i><span>${t.text}</span></div>`)}</div>` : r}
+      ${s.length ? e`<ol class="rm-ts__steps" style=${`--rm-ts-cols:${Math.min(s.length, 4)}`}>${s.map((t) => e`<li class="rm-ts__step">
+            ${t.image ? e`<img src=${t.image} alt="" loading="lazy" />` : r}
+            <h3>${t.title}</h3>${t.text ? e`<p>${t.text}</p>` : r}</li>`)}</ol>` : r}
+      ${n ? r : this.renderCta()}`, { extraClass: `rm-ts${n ? " rm-ts--compact" : ""}`, title: !n });
   }
 }
 typeof d < "u" && d.registerSallaComponent("salla-trust-strip");

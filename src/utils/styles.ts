@@ -33,8 +33,8 @@ const chain = (prefix: "l" | "d") =>
 export const baseCss = `
 .rm-host { display: block; width: 100%; min-width: 0; container-type: inline-size; }
 [data-rm-section] { scroll-margin-top: var(--rm-hd-h, 0px); }
-/* The last block keeps clear of the sticky buy bar while it shows */
-.rm-ft { padding-bottom: calc(1.25rem + var(--rm-sb-h, 0px)) !important; }
+/* The page's end keeps clear of the sticky buy bar while it shows */
+.rm-host:has(> .rm-sb:not(.rm-sb--inline)) { height: var(--rm-sb-h, 0px); }
 .component-card:has(> .rm-host:not(:empty)) { min-height: 0; }
 .rm-block { ${chain("l")}
   display: block; width: 100%; box-sizing: border-box; font-family: var(--font-main, inherit);
@@ -61,6 +61,8 @@ html.rm-mode-ready .rm-block { transition: background-color .3s ease, color .3s 
 .rm-btn:focus-visible { outline: 2px solid var(--rm-accent-ink); outline-offset: 3px; }
 .rm-btn[disabled], .rm-btn[aria-busy="true"] { opacity: .6; cursor: progress; transform: none; }
 .rm-empty { padding: 2rem; border: 1px dashed color-mix(in srgb, var(--rm-text) 35%, transparent); border-radius: 1rem; text-align: center; }
+.rm-cta { display: flex; justify-content: center; margin-top: 2rem; }
+.rm-cta .rm-btn { min-width: min(100%, 16rem); }
 .rm-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .rm-error { margin-top: .5rem; color: #b42318; font-size: .875rem; }
 .rm-block.rm-dark .rm-error, html.rm-mode-dark .rm-auto .rm-error { color: #fda29b; }

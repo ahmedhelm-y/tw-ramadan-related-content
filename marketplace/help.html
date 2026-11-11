@@ -1,51 +1,342 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>دليل رمضانيات</title>
+<meta name="description" content="دليل استخدام مجموعة عناصر رمضانيات لصفحات الهبوط في سلة: القوالب، وكل قسم وإعداداته، والأسئلة.">
 <style>
-  :root { --bg: #fbf8f6; --card: #fff; --text: #3d3631; --title: #1a1714; --accent: #b8862f; --line: #ebe3dc; }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #141210; --card: #1f1b18; --text: #c9bfb4; --title: #f5efe8; --accent: #e0b48f; --line: #34302b; } }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, "Segoe UI", Tahoma, sans-serif; line-height: 1.8; }
-  main { max-width: 52rem; margin: 0 auto; padding: 2.5rem 16px 4rem; }
-  h1 { margin: 0 0 .25rem; color: var(--title); font-size: 2rem; }
-  h2 { margin: 2.5rem 0 .75rem; color: var(--title); font-size: 1.375rem; }
-  h3 { margin: 0 0 .25rem; color: var(--title); font-size: 1.0625rem; }
-  .lead { margin: 0 0 1.5rem; }
-  .card { margin: .75rem 0; padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--card); }
-  .card p { margin: .25rem 0 0; }
-  code { padding: .1rem .35rem; border-radius: .375rem; background: var(--line); font-size: .9em; }
-  ol, ul { padding-inline-start: 1.25rem; }
+:root { --bg: #fbf8f6; --card: #fff; --text: #3d3631; --title: #1a1714; --accent: #a8662f; --line: #ebe3dc; --soft: #f6f0ec; }
+@media (prefers-color-scheme: dark) { :root { --bg: #141210; --card: #1f1b18; --text: #c9bfb4; --title: #f5efe8; --accent: #e2b45c; --line: #34302b; --soft: #26201d; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, "Segoe UI", Tahoma, sans-serif; line-height: 1.85; }
+main { max-width: 60rem; margin: 0 auto; padding: 2.5rem 16px 5rem; }
+h1 { margin: 0 0 .25rem; color: var(--title); font-size: 2.25rem; line-height: 1.3; }
+h2 { margin: 0 0 1rem; color: var(--title); font-size: 1.5rem; }
+h3 { margin: 1rem 0 .25rem; color: var(--title); font-size: 1.0625rem; }
+a { color: var(--accent); }
+.lead { font-size: 1.0625rem; }
+nav.toc { margin: 1.5rem 0 2.5rem; padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--card); }
+nav.toc ol { columns: 2; column-gap: 2rem; margin: .5rem 0 0; padding-inline-start: 1.25rem; }
+@media (max-width: 640px) { nav.toc ol { columns: 1; } }
+.block, .comp { margin: 0 0 2rem; padding: 1.5rem; border: 1px solid var(--line); border-radius: 1.25rem; background: var(--card); scroll-margin-top: 1rem; }
+.comp__top { display: grid; gap: 1.5rem; }
+@media (min-width: 760px) { .comp__top { grid-template-columns: 15rem 1fr; align-items: start; } }
+.comp__top img { width: 100%; max-width: 15rem; height: auto; justify-self: center; border-radius: 1.25rem; border: 6px solid #1b1b1d; background: var(--soft); }
+.comp__top h3:first-child { margin-top: 0; }
+ol, ul { padding-inline-start: 1.25rem; margin: .25rem 0; }
+details { margin-top: 1.25rem; }
+summary { cursor: pointer; font-weight: 700; color: var(--title); }
+table { width: 100%; margin-top: .75rem; border-collapse: collapse; font-size: .9375rem; }
+td, th { padding: .5rem .625rem; border-bottom: 1px solid var(--line); vertical-align: top; text-align: start; }
+td:first-child { width: 34%; font-weight: 600; color: var(--title); }
+tr.group th { padding-top: 1rem; color: var(--accent); font-size: .875rem; }
+small { opacity: .8; }
+.tpl { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.tpl div { padding: 1rem; border-radius: 1rem; background: var(--soft); }
+.tpl b { color: var(--title); }
+code { padding: .1rem .35rem; border-radius: .375rem; background: var(--soft); font-size: .9em; }
+.note { padding: .875rem 1rem; border-radius: .875rem; background: var(--soft); }
 </style>
 </head>
 <body>
 <main>
-  <h1>رمضانيات</h1>
-  <p class="lead">دليل سريع لبناء صفحة هبوط لرمضان والعيد من قنوات البيع ← صفحات الهبوط في سلة.</p>
+<h1>رمضانيات</h1>
+<p class="lead">دليل كامل لمجموعة عناصر رمضان والعيد لصفحات الهبوط في سلة: صفحة بتتغير لوحدها مع التاريخ الهجري كل سنة، وإيه كل قسم بيعمل، وكل إعداداته.</p>
 
-  <h2>البداية</h2>
-  <ol>
-    <li>أنشئ صفحة هبوط جديدة واختر قالب: ليالي رمضان، أو سفرة الإفطار، أو فرحة العيد.</li>
-    <li>من رأس الصفحة اختر <b>لون البراند</b>. القوالب فيها شعار وصور تجريبية: ارفع شعارك وصورك مكانها.</li>
-    <li>الصفحة بتتغير لوحدها مع التاريخ الهجري (تقويم أم القرى): قبل رمضان، وفي رمضان، والعشر الأواخر، والعيد. من <b>واجهة رمضان</b> تقدر تشوف كل حالة في المحرر، وتقدّم أو تأخّر يوم لو الرؤية اختلفت.</li>
-  </ol>
+<nav class="toc" aria-label="المحتويات"><b>المحتويات</b><ol>
+  <li><a href="#start">البداية في 5 خطوات</a></li>
+  <li><a href="#templates">القوالب الثلاثة</a></li>
+  <li><a href="#shared">إعدادات موجودة في كل قسم</a></li>
+  <li><a href="#season">الصفحة بتتغير لوحدها مع التاريخ</a></li>
+  <li><a href="#codes">الأكواد</a></li>
+  <li><a href="#cart">السلة الجانبية و&quot;اطلبها هدية&quot;</a></li>
+  <li><a href="#ramadan-hero">واجهة رمضان</a></li>
+  <li><a href="#prayer-bar">مواقيت الإمساك والإفطار</a></li>
+  <li><a href="#countdown-gift">عداد رمضان بهدية</a></li>
+  <li><a href="#moments-shop">تسوّق حسب لحظة رمضان</a></li>
+  <li><a href="#ramadan-bundle">باقات رمضان والعيد</a></li>
+  <li><a href="#family-shop">للعيلة كلها</a></li>
+  <li><a href="#sadaqah">أثر الصدقة</a></li>
+  <li><a href="#daily-card">بطاقة اليوم</a></li>
+  <li><a href="#last-pieces">آخر القطع قبل العيد</a></li>
+  <li><a href="#trust-strip">شريط الثقة</a></li>
+  <li><a href="#reviews">آراء العملاء</a></li>
+  <li><a href="#faq">الأسئلة الشائعة</a></li>
+  <li><a href="#sticky-buy">شريط الشراء الثابت</a></li>
+  <li><a href="#faq">أسئلة ومشاكل شائعة</a></li>
+  <li><a href="#support">الدعم وسجل التحديثات</a></li>
+</ol></nav>
 
-  <h2>الأكواد (مهم)</h2>
-  <div class="card"><p>القوالب فيها أكواد تجريبية زي <code>RM15</code> و<code>EID20</code>. اعمل أكوادك أولاً من <b>التسويق ← كوبونات التخفيض</b> في سلة، واكتبها مكان التجريبية، وبعدين فعّل <b>"عملت الأكواد دي في سلة"</b> في عداد الهدية وبطاقة اليوم. قبل التفعيل الأكواد مش بتظهر للعملاء.</p></div>
+<section class="block" id="start">
+<h2>البداية في 5 خطوات</h2>
+<ol><li>من لوحة سلة افتح صفحات الهبوط واعمل صفحة جديدة، واختار قالب من القوالب الثلاثة.</li>
+  <li>في <b>واجهة رمضان</b> اختار لون البراند ووضع الصفحة، واكتب نص الزر ومعرّف القسم اللي ينزل له.</li>
+  <li>في أقسام المنتجات (لحظات رمضان، الباقات، للعيلة كلها، آخر القطع) اختار منتجاتك بدل منتجات القالب.</li>
+  <li>اعمل أكواد الخصم في سلة (التسويق ← كوبونات التخفيض)، واكتبها مكان الأكواد التجريبية، وفعّل "عملت الأكواد دي في سلة" في عداد الهدية وبطاقة اليوم.</li>
+  <li>راجع الصفحة في كل حالة من "الحالة اللي تشوفها في المحرر" (قبل رمضان، رمضان، العشر الأواخر، العيد)، وبعدين انشرها.</li></ol>
+<p class="note">كل نص في الصفحة بالعربي والإنجليزي، وبيظهر حسب لغة العميل. الأقسام اللي تسيب نصوصها فاضية بتظهر بنص جاهز. وكل قسم بيشتغل لوحده، فتقدر تحطه في أي صفحة هبوط.</p>
+</section>
 
-  <h2>الأقسام</h2>
-  <div class="card"><h3>مواقيت الإمساك والإفطار</h3><p>العميل يختار مدينته مرة، والمواعيد بتتحسب بتقويم أم القرى. مكتوب جنبها إنها تقريبية والمعتمد أذان المسجد.</p></div>
-  <div class="card"><h3>عداد رمضان بهدية</h3><p>اختار الشكل: شريط، أو زرار عائم، أو نافذة تظهر مرة في الزيارة. اكتب هدية قبل رمضان، وهدية رمضان، وعروض لأيام معينة، وعيدية. ممكن تخلي الكود يظهر بعد أذان المغرب بس.</p></div>
-  <div class="card"><h3>لحظات رمضان والعيلة</h3><p>تبويبات بصور ومنتجات. في رمضان تبويب السحور أو الإفطار أو التراويح بيفتح لوحده حسب الوقت. تحت كل منتج زر "اطلبها هدية" بيفتح واتساب.</p></div>
-  <div class="card"><h3>باقات رمضان</h3><p>اعمل الباقة منتج عادي في سلة بسعرها، واكتب اللي فيها سطر لكل قطعة.</p></div>
-  <div class="card"><h3>بطاقة اليوم</h3><p>اكتب دعاء وهدية لأيام رمضان. تظهر للعملاء في رمضان بس.</p></div>
-  <div class="card"><h3>أثر الصدقة</h3><p>اكتب النسبة والجهة، والمبلغ اللي وصل وحدّثه بنفسك. القسم مش بيحسب أي مبلغ.</p></div>
-  <div class="card"><h3>آخر القطع</h3><p>اختار آخر يوم في رمضان للطلبات اللي توصل قبل العيد (24 مثلاً)، والشريط بيتغير لوحده بعده.</p></div>
+<section class="block" id="templates">
+<h2>القوالب الثلاثة</h2>
+<p>كل قالب ليه هدف واحد، وفيه الأقسام اللي بتخدم الهدف ده بس. باقي الأقسام موجودة في المحرر وتقدر تضيفها لأي قالب.</p>
+<div class="tpl">
+<div><b>ليالي رمضان</b><p>الهدف: العميل يتسوّق هدايا رمضان حسب اللحظة. داكن وذهبي، للهدايا والإكسسوارات.</p><small>الأقسام: واجهة رمضان ← تسوّق حسب لحظة رمضان ← باقات رمضان والعيد ← عداد رمضان بهدية ← شريط الثقة ← آراء العملاء ← الأسئلة الشائعة</small></div>
+<div><b>سفرة الإفطار</b><p>الهدف: العميل يطلب باقات السفرة قبل الإفطار، ومعاه مواقيت مدينته. فاتح ودافي، للأغذية والضيافة.</p><small>الأقسام: واجهة رمضان ← مواقيت الإمساك والإفطار ← باقات رمضان والعيد ← تسوّق حسب لحظة رمضان ← شريط الثقة ← آراء العملاء ← الأسئلة الشائعة</small></div>
+<div><b>فرحة العيد</b><p>الهدف: العميل يشتري كسوة العيد قبل آخر موعد للطلبات. أخضر، للأزياء.</p><small>الأقسام: واجهة رمضان ← آخر القطع قبل العيد ← للعيلة كلها ← عداد رمضان بهدية ← شريط الثقة ← آراء العملاء ← الأسئلة الشائعة</small></div>
+</div>
+</section>
 
-  <h2>للتواصل</h2>
-  <p>ahmedhelmy2722@gmail.com</p>
+<section class="block" id="shared">
+<h2>إعدادات موجودة في كل قسم</h2>
+<ul>
+  <li><b>العنوان والوصف:</b> فوق القسم. لو سبتهم فاضيين بيختفوا.</li>
+  <li><b>معرّف القسم:</b> كلمة إنجليزية بدون مسافات. الأزرار اللي بتنزل لقسم معيّن بتكتب المعرّف ده.</li>
+  <li><b>زرار الشراء المتكرر:</b> في &quot;شريط الثقة&quot; و&quot;آراء العملاء&quot; زرار في آخر القسم بيرجّع العميل للمنتجات (لحظات رمضان، أو الباقات، أو للعيلة كلها)، بنفس شكل زرار واجهة رمضان، عشان الصفحة كلها تودّي لهدف واحد.</li>
+  <li><b>الألوان:</b> لكل قسم ألوان للوضع الفاتح والداكن. الفاضي بيتبع لون البراند من واجهة رمضان، ولو مفيش لون براند بيتبع ألوان متجرك.</li>
+  <li><b>وضع الألوان:</b> القسم يتبع وضع الصفحة، أو يفضل فاتح أو داكن دائماً.</li>
+</ul>
+</section>
+
+<section class="block" id="season">
+<h2>الصفحة بتتغير لوحدها مع التاريخ</h2>
+<p>الصفحة بتعرف التاريخ الهجري بتقويم أم القرى، وبتتغير لوحدها كل سنة من غير ما تعدّل حاجة:</p>
+<ul><li><b>قبل رمضان:</b> عداد لأول رمضان، ونصوص "قبل رمضان".</li>
+<li><b>في رمضان:</b> اليوم من رمضان، ومواقيت الإفطار، وبطاقة اليوم، وعرض اليوم.</li>
+<li><b>العشر الأواخر:</b> نصوص العشر الأواخر، وشريط آخر موعد لطلبات العيد.</li>
+<li><b>العيد وبعده:</b> نصوص العيد، وكود العيد.</li></ul>
+<p>لو الرؤية اختلفت عن التقويم بيوم، غيّر "تقديم أو تأخير يوم" في واجهة رمضان، وكل الأقسام بتتبعه.</p>
+</section>
+
+<section class="block" id="codes">
+<h2>الأكواد</h2>
+<p>عداد الهدية وبطاقة اليوم بيعرضوا أكواد بتعملها انت في سلة. القوالب فيها أكواد تجريبية زي <code>RM15</code> و<code>EID20</code>.</p>
+<ol><li>اعمل كل كود من التسويق ← كوبونات التخفيض في سلة بنفس الاسم بالظبط.</li>
+<li>اكتبه مكان الكود التجريبي في القسم.</li>
+<li>فعّل "عملت الأكواد دي في سلة". قبل التفعيل الأكواد مش بتظهر للعملاء.</li></ol>
+</section>
+
+<section class="block" id="cart">
+<h2>السلة الجانبية و&quot;اطلبها هدية&quot;</h2>
+<p>أي زرار "أضف للسلة" في الصفحة بيضيف المنتج ويفتح سلة جانبية من غير ما العميل يسيب الصفحة: فيها المنتجات، وحذف أي منتج، والإجمالي، وزرار "إتمام الطلب".</p>
+<p>وزرار "اطلبها هدية 🎁" تحت المنتجات بيفتح واتساب برسالة جاهزة فيها اسم المنتج ورابطه، يبعتها العميل لأهله.</p>
+</section>
+
+<section class="comp" id="ramadan-hero">
+  <h2>واجهة رمضان</h2>
+  <div class="comp__top">
+    <img src="https://raw.githubusercontent.com/ahmedhelm-y/tw-ramadan-related-content/store-assets/help/ramadan-hero.jpg" alt="واجهة رمضان على الجوال" loading="lazy" width="390" height="844">
+    <div>
+      <h3>إيه ده؟</h3><p>أول قسم في الصفحة: أقواس بصورتين، وهلال وفوانيس، والتاريخ الهجري واليوم من رمضان، وعنوان ووصف لكل مرحلة، وعداد لأيام العيد، وزرار رئيسي بينزل للمنتجات. ومنه بتختار ألوان الصفحة كلها.</p>
+      <h3>إزاي تستخدمه</h3><ol><li>ارفع صورتين للأقواس.</li><li>اكتب نص الزر ومعرّف القسم اللي ينزل له (moments أو bundles أو family).</li><li>اكتب شارة وعنوان ووصف لكل مرحلة. المرحلة اللي تسيبها فاضية بتاخد نصوص رمضان.</li><li>من &quot;ألوان الصفحة كلها&quot; اختار لون البراند ووضع الصفحة.</li></ol>
+      <h3>نصايح</h3><ul><li>لو الرؤية اختلفت، غيّر &quot;تقديم أو تأخير يوم&quot; بـ 1 أو -1.</li></ul>
+    </div>
+  </div>
+  <details><summary>كل إعدادات القسم</summary>
+    <table><tbody><tr class="group"><th colspan="2">الصفحة بتتغير لوحدها مع التاريخ الهجري (تقويم أم القرى)</th></tr><tr><td>تقديم أو تأخير يوم (لو الرؤية اختلفت)</td><td>مثلاً 1 لو رمضان بدأ بعد التقويم بيوم</td></tr><tr><td>الحالة اللي تشوفها في المحرر</td><td>العملاء دايماً بيشوفوا الحالة الحقيقية الاختيارات: حسب التاريخ، قبل رمضان، في رمضان، العشر الأواخر، العيد.</td></tr><tr><td>صورة القوس الأول</td><td></td></tr><tr><td>صورة القوس الثاني</td><td></td></tr><tr><td>فوانيس متعلقة</td><td></td></tr><tr><td>نص الزر</td><td></td></tr><tr><td>معرّف القسم اللي الزر ينزل له</td><td></td></tr><tr class="group"><th colspan="2">قبل رمضان</th></tr><tr><td>شارة</td><td></td></tr><tr><td>العنوان</td><td></td></tr><tr><td>الوصف</td><td></td></tr><tr class="group"><th colspan="2">في رمضان</th></tr><tr><td>شارة</td><td></td></tr><tr><td>العنوان</td><td></td></tr><tr><td>الوصف</td><td></td></tr><tr class="group"><th colspan="2">العشر الأواخر</th></tr><tr><td>شارة</td><td></td></tr><tr><td>العنوان</td><td></td></tr><tr><td>الوصف</td><td></td></tr><tr class="group"><th colspan="2">العيد</th></tr><tr><td>شارة</td><td></td></tr><tr><td>العنوان</td><td></td></tr><tr><td>الوصف</td><td></td></tr><tr class="group"><th colspan="2">بعد العيد</th></tr><tr><td>شارة</td><td></td></tr><tr><td>العنوان</td><td></td></tr><tr><td>الوصف</td><td></td></tr><tr class="group"><th colspan="2">ألوان الصفحة كلها</th></tr><tr><td>لون البراند</td><td>لون واحد تُبنى منه ألوان كل أقسام الصفحة في الوضع الفاتح والداكن. اتركه فارغاً لاستخدام ألوان متجرك</td></tr><tr><td>وضع الصفحة</td><td>الأقسام اللي وضع ألوانها &quot;حسب وضع الصفحة&quot; بتتبعه الاختيارات: فاتح، داكن، حسب جهاز الزائر.</td></tr><tr class="group"><th colspan="2">ألوان الوضع الفاتح</th></tr><tr class="group"><th colspan="2">ألوان الوضع الداكن</th></tr><tr><td>ألوان الوضع الفاتح والداكن</td><td>خلفية القسم والبطاقات والعناوين والنصوص والأزرار. الفاضي بيتبع ألوان الصفحة.</td></tr><tr><td>وضع الألوان</td><td>حسب وضع الصفحة، أو فاتح دائماً، أو داكن دائماً.</td></tr></tbody></table>
+  </details>
+</section>
+
+<section class="comp" id="prayer-bar">
+  <h2>مواقيت الإمساك والإفطار</h2>
+  <div class="comp__top">
+    <img src="https://raw.githubusercontent.com/ahmedhelm-y/tw-ramadan-related-content/store-assets/help/prayer-bar.jpg" alt="مواقيت الإمساك والإفطار على الجوال" loading="lazy" width="390" height="844">
+    <div>
+      <h3>إيه ده؟</h3><p>مواقيت الإمساك والإفطار لمدينة العميل بتقويم أم القرى، وعداد لحد الإفطار أو الإمساك. العميل يختار مدينته مرة واحدة والصفحة بتفتكرها.</p>
+      <h3>إزاي تستخدمه</h3><ol><li>حطه تحت واجهة رمضان.</li><li>اختار تظهر العداد ولا لأ، واكتب سطر يظهر بعد المغرب (مثل عروض ما بعد الإفطار).</li></ol>
+      <h3>نصايح</h3><ul><li>المواعيد تقريبية، وتحت الشريط سطر بيقول للعميل يعتمد أذان مسجده.</li></ul>
+    </div>
+  </div>
+  <details><summary>كل إعدادات القسم</summary>
+    <table><tbody><tr><td>العنوان</td><td></td></tr><tr><td>الوصف</td><td></td></tr><tr><td>معرّف القسم (للروابط)</td><td>كلمة إنجليزية بدون مسافات مثل moments. الأزرار اللي بتنزل لقسم بتستخدمه</td></tr><tr class="group"><th colspan="2">العميل يختار مدينته مرة، والمواعيد بتتحسب بتقويم أم القرى</th></tr><tr><td>عداد لحد الإفطار أو الإمساك</td><td></td></tr><tr><td>سطر يظهر بعد المغرب</td><td></td></tr><tr class="group"><th colspan="2">ألوان الوضع الفاتح</th></tr><tr class="group"><th colspan="2">ألوان الوضع الداكن</th></tr><tr><td>ألوان الوضع الفاتح والداكن</td><td>خلفية القسم والبطاقات والعناوين والنصوص والأزرار. الفاضي بيتبع ألوان الصفحة.</td></tr><tr><td>وضع الألوان</td><td>حسب وضع الصفحة، أو فاتح دائماً، أو داكن دائماً.</td></tr></tbody></table>
+  </details>
+</section>
+
+<section class="comp" id="countdown-gift">
+  <h2>عداد رمضان بهدية</h2>
+  <div class="comp__top">
+    <img src="https://raw.githubusercontent.com/ahmedhelm-y/tw-ramadan-related-content/store-assets/help/countdown-gift.jpg" alt="عداد رمضان بهدية على الجوال" loading="lazy" width="390" height="844">
+    <div>
+      <h3>إيه ده؟</h3><p>عداد بهدية: قبل رمضان عداد لأول رمضان وكود، وفي رمضان عرض اليوم وعداد لنهاية اليوم، وفي العيد كود العيد. بيظهر شريط في الصفحة، أو زرار عائم، أو نافذة.</p>
+      <h3>إزاي تستخدمه</h3><ol><li>اختار الشكل.</li><li>اكتب نص وكود لكل مرحلة، وعروض لأيام معيّنة من رمضان لو حابب.</li><li>اعمل الأكواد في سلة وفعّل &quot;عملت الأكواد دي في سلة&quot;.</li></ol>
+      <h3>نصايح</h3><ul><li>لو فعّلت &quot;الكود يظهر بعد أذان المغرب بس&quot;، الكود بيظهر للعميل بعد المغرب في مدينته.</li></ul>
+    </div>
+  </div>
+  <details><summary>كل إعدادات القسم</summary>
+    <table><tbody><tr><td>الشكل</td><td> الاختيارات: شريط في الصفحة، زرار عائم في الطرف، نافذة تظهر مرة في الزيارة.</td></tr><tr class="group"><th colspan="2">قبل رمضان: عداد لحد أول رمضان</th></tr><tr><td>النص</td><td></td></tr><tr><td>الكود</td><td></td></tr><tr class="group"><th colspan="2">في رمضان: عرض اليوم وعداد لنهاية اليوم</th></tr><tr><td>النص الافتراضي</td><td></td></tr><tr><td>الكود الافتراضي</td><td></td></tr><tr><td>عرض يوم <small>(قائمة، حتى 30)</small></td><td>لكل عرض يوم: اليوم من رمضان، العرض، الكود</td></tr><tr><td>الكود يظهر بعد أذان المغرب بس (حسب مدينة العميل)</td><td></td></tr><tr class="group"><th colspan="2">العيد</th></tr><tr><td>النص</td><td></td></tr><tr><td>الكود</td><td></td></tr><tr><td>عملت الأكواد دي في سلة (التسويق ← كوبونات التخفيض)</td><td>الأكواد بتظهر للعملاء بس بعد ما تفعّل ده</td></tr><tr class="group"><th colspan="2">ألوان الوضع الفاتح</th></tr><tr class="group"><th colspan="2">ألوان الوضع الداكن</th></tr><tr><td>ألوان الوضع الفاتح والداكن</td><td>خلفية القسم والبطاقات والعناوين والنصوص والأزرار. الفاضي بيتبع ألوان الصفحة.</td></tr><tr><td>وضع الألوان</td><td>حسب وضع الصفحة، أو فاتح دائماً، أو داكن دائماً.</td></tr></tbody></table>
+  </details>
+</section>
+
+<section class="comp" id="moments-shop">
+  <h2>تسوّق حسب لحظة رمضان</h2>
+  <div class="comp__top">
+    <img src="https://raw.githubusercontent.com/ahmedhelm-y/tw-ramadan-related-content/store-assets/help/moments-shop.jpg" alt="تسوّق حسب لحظة رمضان على الجوال" loading="lazy" width="390" height="844">
+    <div>
+      <h3>إيه ده؟</h3><p>تسوّق حسب لحظة رمضان: تبويبات بدوائر (السحور، الإفطار، التراويح، العيد، الهدايا)، وكل تبويب بمنتجاته. التبويب بيفتح لوحده على اللحظة الحالية في رمضان.</p>
+      <h3>إزاي تستخدمه</h3><ol><li>أضف التبويبات: الاسم، وصورة الدائرة، والمنتجات (حتى 12).</li><li>اختار لكل تبويب يفتح لوحده في أي وقت (السحور، الإفطار، التراويح...).</li></ol>
+      <h3>نصايح</h3><ul><li>معرّف القسم moments، وزرار واجهة رمضان بينزل له.</li></ul>
+    </div>
+  </div>
+  <details><summary>كل إعدادات القسم</summary>
+    <table><tbody><tr><td>العنوان</td><td></td></tr><tr><td>الوصف</td><td></td></tr><tr><td>معرّف القسم (للروابط)</td><td>كلمة إنجليزية بدون مسافات مثل moments. الأزرار اللي بتنزل لقسم بتستخدمه</td></tr><tr><td>تبويب <small>(قائمة، حتى 6)</small></td><td>لكل تبويب: الاسم، صورة الدائرة، المنتجات (حتى 12)، يفتح لوحده في وقت</td></tr><tr><td>زر &quot;اطلبها هدية&quot; تحت كل منتج (واتساب)</td><td></td></tr><tr class="group"><th colspan="2">ألوان الوضع الفاتح</th></tr><tr class="group"><th colspan="2">ألوان الوضع الداكن</th></tr><tr><td>ألوان الوضع الفاتح والداكن</td><td>خلفية القسم والبطاقات والعناوين والنصوص والأزرار. الفاضي بيتبع ألوان الصفحة.</td></tr><tr><td>وضع الألوان</td><td>حسب وضع الصفحة، أو فاتح دائماً، أو داكن دائماً.</td></tr></tbody></table>
+  </details>
+</section>
+
+<section class="comp" id="ramadan-bundle">
+  <h2>باقات رمضان والعيد</h2>
+  <div class="comp__top">
+    <img src="https://raw.githubusercontent.com/ahmedhelm-y/tw-ramadan-related-content/store-assets/help/ramadan-bundle.jpg" alt="باقات رمضان والعيد على الجوال" loading="lazy" width="390" height="844">
+    <div>
+      <h3>إيه ده؟</h3><p>باقات رمضان والعيد (حتى 3): صورة وعنوان وشارة، واللي في الباقة سطر لكل قطعة، والسعر قبل وبعد، وزرار إضافة، و&quot;اطلبها هدية&quot;.</p>
+      <h3>إزاي تستخدمه</h3><ol><li>اعمل الباقة منتج في سلة بسعرها، واختاره هنا.</li><li>اكتب اللي في الباقة، كل قطعة في سطر.</li></ol>
+      
+    </div>
+  </div>
+  <details><summary>كل إعدادات القسم</summary>
+    <table><tbody><tr><td>العنوان</td><td></td></tr><tr><td>الوصف</td><td></td></tr><tr><td>معرّف القسم (للروابط)</td><td>كلمة إنجليزية بدون مسافات مثل moments. الأزرار اللي بتنزل لقسم بتستخدمه</td></tr><tr><td>باقة <small>(قائمة، حتى 3)</small></td><td>لكل باقة: منتج الباقة <small>(الباقة منتج عادي في سلة بسعرها)</small>، العنوان (فارغ = اسم المنتج)، صورة (فارغة = صورة المنتج)، اللي في الباقة (سطر لكل قطعة)، شارة</td></tr><tr><td>نص الزر</td><td></td></tr><tr><td>زر &quot;اطلبها هدية&quot; (واتساب)</td><td></td></tr><tr class="group"><th colspan="2">ألوان الوضع الفاتح</th></tr><tr class="group"><th colspan="2">ألوان الوضع الداكن</th></tr><tr><td>ألوان الوضع الفاتح والداكن</td><td>خلفية القسم والبطاقات والعناوين والنصوص والأزرار. الفاضي بيتبع ألوان الصفحة.</td></tr><tr><td>وضع الألوان</td><td>حسب وضع الصفحة، أو فاتح دائماً، أو داكن دائماً.</td></tr></tbody></table>
+  </details>
+</section>
+
+<section class="comp" id="family-shop">
+  <h2>للعيلة كلها</h2>
+  <div class="comp__top">
+    <img src="https://raw.githubusercontent.com/ahmedhelm-y/tw-ramadan-related-content/store-assets/help/family-shop.jpg" alt="للعيلة كلها على الجوال" loading="lazy" width="390" height="844">
+    <div>
+      <h3>إيه ده؟</h3><p>منتجات للعيلة كلها بتبويبات (نساء، رجال، أطفال)، مناسب لكسوة العيد.</p>
+      <h3>إزاي تستخدمه</h3><ol><li>أضف التبويبات ومنتجات كل تبويب (حتى 12).</li></ol>
+      <h3>نصايح</h3><ul><li>معرّف القسم family، وتقدر تخلّي زرار واجهة رمضان ينزل له.</li></ul>
+    </div>
+  </div>
+  <details><summary>كل إعدادات القسم</summary>
+    <table><tbody><tr><td>العنوان</td><td></td></tr><tr><td>الوصف</td><td></td></tr><tr><td>معرّف القسم (للروابط)</td><td>كلمة إنجليزية بدون مسافات مثل moments. الأزرار اللي بتنزل لقسم بتستخدمه</td></tr><tr><td>تبويب <small>(قائمة، حتى 6)</small></td><td>لكل تبويب: الاسم، صورة (اختياري)، المنتجات (حتى 12)، يفتح لوحده في وقت</td></tr><tr><td>زر &quot;اطلبها هدية&quot; تحت كل منتج (واتساب)</td><td></td></tr><tr class="group"><th colspan="2">ألوان الوضع الفاتح</th></tr><tr class="group"><th colspan="2">ألوان الوضع الداكن</th></tr><tr><td>ألوان الوضع الفاتح والداكن</td><td>خلفية القسم والبطاقات والعناوين والنصوص والأزرار. الفاضي بيتبع ألوان الصفحة.</td></tr><tr><td>وضع الألوان</td><td>حسب وضع الصفحة، أو فاتح دائماً، أو داكن دائماً.</td></tr></tbody></table>
+  </details>
+</section>
+
+<section class="comp" id="sadaqah">
+  <h2>أثر الصدقة</h2>
+  <div class="comp__top">
+    <img src="https://raw.githubusercontent.com/ahmedhelm-y/tw-ramadan-related-content/store-assets/help/sadaqah.jpg" alt="أثر الصدقة على الجوال" loading="lazy" width="390" height="844">
+    <div>
+      <h3>إيه ده؟</h3><p>أثر الصدقة: نسبة من كل طلب لجهة خيرية، والمبلغ اللي وصل للجهة، وشريط للهدف، ورابط للإيصالات.</p>
+      <h3>إزاي تستخدمه</h3><ol><li>اكتب النسبة والسطر واسم الجهة وشعارها.</li><li>اكتب المبلغ اللي وصل فعلاً والهدف، وحدّثهم بنفسك.</li></ol>
+      <h3>نصايح</h3><ul><li>الصفحة مش بتحسب ولا بتقدّر أي مبلغ. اكتب الأرقام الحقيقية بس، وحط رابط الإيصالات لو عندك.</li></ul>
+    </div>
+  </div>
+  <details><summary>كل إعدادات القسم</summary>
+    <table><tbody><tr><td>العنوان</td><td></td></tr><tr><td>الوصف</td><td></td></tr><tr><td>معرّف القسم (للروابط)</td><td>كلمة إنجليزية بدون مسافات مثل moments. الأزرار اللي بتنزل لقسم بتستخدمه</td></tr><tr><td>النسبة من كل طلب (%)</td><td></td></tr><tr><td>السطر</td><td></td></tr><tr><td>اسم الجهة</td><td></td></tr><tr><td>شعار الجهة</td><td></td></tr><tr class="group"><th colspan="2">اكتب الأرقام بنفسك وحدّثها. الصفحة مش بتحسب ولا بتقدّر أي مبلغ</th></tr><tr><td>المبلغ اللي وصل للجهة لحد الآن (ريال)</td><td></td></tr><tr><td>الهدف (ريال، اختياري)</td><td></td></tr><tr><td>آخر تحديث</td><td>مثل 14 رمضان</td></tr><tr><td>رابط الإيصالات (اختياري)</td><td></td></tr><tr class="group"><th colspan="2">ألوان الوضع الفاتح</th></tr><tr class="group"><th colspan="2">ألوان الوضع الداكن</th></tr><tr><td>ألوان الوضع الفاتح والداكن</td><td>خلفية القسم والبطاقات والعناوين والنصوص والأزرار. الفاضي بيتبع ألوان الصفحة.</td></tr><tr><td>وضع الألوان</td><td>حسب وضع الصفحة، أو فاتح دائماً، أو داكن دائماً.</td></tr></tbody></table>
+  </details>
+</section>
+
+<section class="comp" id="daily-card">
+  <h2>بطاقة اليوم</h2>
+  <div class="comp__top">
+    <img src="https://raw.githubusercontent.com/ahmedhelm-y/tw-ramadan-related-content/store-assets/help/daily-card.jpg" alt="بطاقة اليوم على الجوال" loading="lazy" width="390" height="844">
+    <div>
+      <h3>إيه ده؟</h3><p>بطاقة اليوم في رمضان: دعاء اليوم، وسؤال &quot;صيامك اليوم؟&quot;، وبعد الإجابة تظهر هدية اليوم وكودها. كل يوم بيظهر باللي كتبته له.</p>
+      <h3>إزاي تستخدمه</h3><ol><li>اكتب دعاء وهدية وكود افتراضيين.</li><li>أضف أيام معيّنة بدعائها وهديتها لو حابب.</li><li>اعمل الأكواد في سلة وفعّل &quot;عملت الأكواد دي في سلة&quot;.</li></ol>
+      <h3>نصايح</h3><ul><li>البطاقة بتظهر للعملاء في رمضان بس. في المحرر بتشوف اليوم الأول.</li></ul>
+    </div>
+  </div>
+  <details><summary>كل إعدادات القسم</summary>
+    <table><tbody><tr><td>العنوان</td><td></td></tr><tr><td>الوصف</td><td></td></tr><tr><td>معرّف القسم (للروابط)</td><td>كلمة إنجليزية بدون مسافات مثل moments. الأزرار اللي بتنزل لقسم بتستخدمه</td></tr><tr class="group"><th colspan="2">تظهر للعملاء في رمضان بس، وكل يوم باللي كتبته له</th></tr><tr><td>السؤال</td><td></td></tr><tr><td>زر نعم</td><td></td></tr><tr><td>زر الثاني</td><td></td></tr><tr><td>الدعاء الافتراضي</td><td></td></tr><tr><td>الهدية الافتراضية</td><td></td></tr><tr><td>الكود الافتراضي</td><td></td></tr><tr><td>يوم <small>(قائمة، حتى 30)</small></td><td>لكل يوم: اليوم من رمضان، الدعاء، الهدية، الكود</td></tr><tr><td>عملت الأكواد دي في سلة (التسويق ← كوبونات التخفيض)</td><td></td></tr><tr class="group"><th colspan="2">ألوان الوضع الفاتح</th></tr><tr class="group"><th colspan="2">ألوان الوضع الداكن</th></tr><tr><td>ألوان الوضع الفاتح والداكن</td><td>خلفية القسم والبطاقات والعناوين والنصوص والأزرار. الفاضي بيتبع ألوان الصفحة.</td></tr><tr><td>وضع الألوان</td><td>حسب وضع الصفحة، أو فاتح دائماً، أو داكن دائماً.</td></tr></tbody></table>
+  </details>
+</section>
+
+<section class="comp" id="last-pieces">
+  <h2>آخر القطع قبل العيد</h2>
+  <div class="comp__top">
+    <img src="https://raw.githubusercontent.com/ahmedhelm-y/tw-ramadan-related-content/store-assets/help/last-pieces.jpg" alt="آخر القطع قبل العيد على الجوال" loading="lazy" width="390" height="844">
+    <div>
+      <h3>إيه ده؟</h3><p>آخر القطع قبل العيد: منتجات بشارة، و&quot;باقي X فقط&quot; لما الكمية تقل، وشريط &quot;اطلب قبل نهاية 24 رمضان&quot; بعداد لآخر موعد لطلبات العيد.</p>
+      <h3>إزاي تستخدمه</h3><ol><li>اختار المنتجات (حتى 12).</li><li>اكتب آخر يوم في رمضان للطلبات اللي توصل قبل العيد، والنص اللي يظهر بعده.</li></ol>
+      <h3>نصايح</h3><ul><li>&quot;باقي X فقط&quot; بيظهر بس لو منتجك في سلة بيعرض الكمية.</li></ul>
+    </div>
+  </div>
+  <details><summary>كل إعدادات القسم</summary>
+    <table><tbody><tr><td>العنوان</td><td></td></tr><tr><td>الوصف</td><td></td></tr><tr><td>معرّف القسم (للروابط)</td><td>كلمة إنجليزية بدون مسافات مثل moments. الأزرار اللي بتنزل لقسم بتستخدمه</td></tr><tr><td>المنتجات (حتى 12)</td><td></td></tr><tr><td>الشارة</td><td></td></tr><tr><td>اكتب &quot;باقي X فقط&quot; لما الكمية تكون أقل من</td><td>بيظهر بس لو المنتج في سلة بيعرض الكمية</td></tr><tr class="group"><th colspan="2">آخر موعد لطلبات العيد</th></tr><tr><td>شريط آخر موعد</td><td></td></tr><tr><td>آخر يوم في رمضان للطلبات اللي توصل قبل العيد</td><td></td></tr><tr><td>النص بعد الموعد</td><td></td></tr><tr><td>زر &quot;اطلبها هدية&quot; (واتساب)</td><td></td></tr><tr class="group"><th colspan="2">ألوان الوضع الفاتح</th></tr><tr class="group"><th colspan="2">ألوان الوضع الداكن</th></tr><tr><td>ألوان الوضع الفاتح والداكن</td><td>خلفية القسم والبطاقات والعناوين والنصوص والأزرار. الفاضي بيتبع ألوان الصفحة.</td></tr><tr><td>وضع الألوان</td><td>حسب وضع الصفحة، أو فاتح دائماً، أو داكن دائماً.</td></tr></tbody></table>
+  </details>
+</section>
+
+<section class="comp" id="trust-strip">
+  <h2>شريط الثقة</h2>
+  <div class="comp__top">
+    <img src="https://raw.githubusercontent.com/ahmedhelm-y/tw-ramadan-related-content/store-assets/help/trust-strip.jpg" alt="شريط الثقة على الجوال" loading="lazy" width="390" height="844">
+    <div>
+      <h3>إيه ده؟</h3><p>مميزات الشراء من متجرك (التوصيل قبل العيد، التغليف، التقسيط، الاستبدال) بخلفية بنقش خفيف، كشريط صغير أو كقسم كامل بعنوان وزرار تسوّق في آخره.</p>
+      <h3>إزاي تستخدمه</h3><ol><li>اختار الشكل: شريط صغير أو قسم كامل.</li><li>أضف المميزات بأيقوناتها (حتى 6)، والخطوات لو حابب.</li></ol>
+      <h3>نصايح</h3><ul><li>اكتب سياساتك الحقيقية بس.</li></ul>
+    </div>
+  </div>
+  <details><summary>كل إعدادات القسم</summary>
+    <table><tbody><tr><td>العنوان</td><td></td></tr><tr><td>الوصف</td><td></td></tr><tr><td>معرّف القسم (للروابط)</td><td>كلمة إنجليزية بدون مسافات مثل moments. الأزرار اللي بتنزل لقسم بتستخدمه</td></tr><tr><td>الشكل</td><td>الشريط الصغير يخفي العنوان، ويظهر لو مفيش خطوات الاختيارات: شريط صغير، قسم كامل.</td></tr><tr><td>خلفية بنقش خفيف خلف المميزات</td><td></td></tr><tr><td>ميزة <small>(قائمة، حتى 6)</small></td><td>لكل ميزة: الأيقونة، النص</td></tr><tr class="group"><th colspan="2">إزاي بنعملها (اختياري)</th></tr><tr><td>خطوة <small>(قائمة، حتى 4)</small></td><td>لكل خطوة: العنوان، الوصف، صورة</td></tr><tr class="group"><th colspan="2">زرار التسوّق</th></tr><tr><td>إظهار الزرار في آخر القسم</td><td></td></tr><tr><td>نص الزرار</td><td></td></tr><tr><td>معرّف القسم اللي الزرار ينزل له</td><td>مثل moments لتسوّق حسب لحظة رمضان، أو bundles للباقات</td></tr><tr class="group"><th colspan="2">ألوان الوضع الفاتح</th></tr><tr class="group"><th colspan="2">ألوان الوضع الداكن</th></tr><tr><td>ألوان الوضع الفاتح والداكن</td><td>خلفية القسم والبطاقات والعناوين والنصوص والأزرار. الفاضي بيتبع ألوان الصفحة.</td></tr><tr><td>وضع الألوان</td><td>حسب وضع الصفحة، أو فاتح دائماً، أو داكن دائماً.</td></tr></tbody></table>
+  </details>
+</section>
+
+<section class="comp" id="reviews">
+  <h2>آراء العملاء</h2>
+  <div class="comp__top">
+    <img src="https://raw.githubusercontent.com/ahmedhelm-y/tw-ramadan-related-content/store-assets/help/reviews.jpg" alt="آراء العملاء على الجوال" loading="lazy" width="390" height="844">
+    <div>
+      <h3>إيه ده؟</h3><p>آراء العملاء بالنجوم، ومعاها صور أو تسجيل صوتي، وأزرار فلترة حسب الموضوع (التغليف، التوصيل، الجودة)، وملخص فيه المتوسط وتوزيع النجوم. وفي آخره زرار التسوّق.</p>
+      <h3>إزاي تستخدمه</h3><ol><li>أضف الآراء من طلبات حقيقية.</li><li>اكتب &quot;مواضيع الرأي&quot; مفصولة بفاصلة، فتظهر أزرار الفلترة.</li><li>فعّل &quot;عميل مؤكد&quot; للرأي اللي جاي من طلب حقيقي بس.</li></ol>
+      <h3>نصايح</h3><ul><li>التسجيل الصوتي لازم يكون رابط MP3 مباشر.</li></ul>
+    </div>
+  </div>
+  <details><summary>كل إعدادات القسم</summary>
+    <table><tbody><tr><td>العنوان</td><td></td></tr><tr><td>الوصف</td><td></td></tr><tr><td>معرّف القسم (للروابط)</td><td>كلمة إنجليزية بدون مسافات مثل moments. الأزرار اللي بتنزل لقسم بتستخدمه</td></tr><tr><td>إظهار ملخص التقييمات</td><td></td></tr><tr><td>ملخص آراء العملاء</td><td></td></tr><tr><td>سؤال <small>(قائمة، حتى 6)</small></td><td>لكل سؤال: السؤال، الإجابة</td></tr><tr class="group"><th colspan="2">الآراء: نص، أو تسجيل صوتي، أو صور، أو كلها معاً</th></tr><tr><td>رأي <small>(قائمة، حتى 12)</small></td><td>لكل رأي: اسم العميل، المدينة، أين قيل الرأي <small>(مثل في العرس أو في الدوام)</small>، التقييم من 5، الرأي، رابط التسجيل الصوتي (MP3) <small>(ارفع الملف في أي مكان وضع رابطه هنا. يفضّل أقل من 30 ثانية)</small>، صورة 1، صورة 2، صورة 3، صورة العميل <small>(اختياري، تظهر الأحرف الأولى عند عدم رفع صورة)</small>، عميل مؤكد <small>(فعّله فقط لعميل اشترى المنتج فعلاً)</small>، اشترى <small>(مثل باقة السحور)</small>، مواضيع الرأي <small>(مفصولة بفاصلة، مثل: التغليف، الجودة، التوصيل. تظهر أزرار فلترة بها)</small></td></tr><tr class="group"><th colspan="2">زرار التسوّق</th></tr><tr><td>إظهار الزرار في آخر القسم</td><td></td></tr><tr><td>نص الزرار</td><td></td></tr><tr><td>معرّف القسم اللي الزرار ينزل له</td><td>مثل moments لتسوّق حسب لحظة رمضان، أو bundles للباقات</td></tr><tr class="group"><th colspan="2">ألوان الوضع الفاتح</th></tr><tr class="group"><th colspan="2">ألوان الوضع الداكن</th></tr><tr><td>ألوان الوضع الفاتح والداكن</td><td>خلفية القسم والبطاقات والعناوين والنصوص والأزرار. الفاضي بيتبع ألوان الصفحة.</td></tr><tr><td>وضع الألوان</td><td>حسب وضع الصفحة، أو فاتح دائماً، أو داكن دائماً.</td></tr></tbody></table>
+  </details>
+</section>
+
+<section class="comp" id="faq">
+  <h2>الأسئلة الشائعة</h2>
+  <div class="comp__top">
+    <img src="https://raw.githubusercontent.com/ahmedhelm-y/tw-ramadan-related-content/store-assets/help/faq.jpg" alt="الأسئلة الشائعة على الجوال" loading="lazy" width="390" height="844">
+    <div>
+      <h3>إيه ده؟</h3><p>الأسئلة الشائعة وإجاباتها، بتفتح وتقفل.</p>
+      <h3>إزاي تستخدمه</h3><ol><li>أضف أسئلتك وإجاباتها (حتى 10).</li></ol>
+      
+    </div>
+  </div>
+  <details><summary>كل إعدادات القسم</summary>
+    <table><tbody><tr><td>العنوان</td><td></td></tr><tr><td>الوصف</td><td></td></tr><tr><td>معرّف القسم (للروابط)</td><td>كلمة إنجليزية بدون مسافات مثل moments. الأزرار اللي بتنزل لقسم بتستخدمه</td></tr><tr><td>سؤال <small>(قائمة، حتى 10)</small></td><td>لكل سؤال: السؤال، الإجابة</td></tr><tr class="group"><th colspan="2">ألوان الوضع الفاتح</th></tr><tr class="group"><th colspan="2">ألوان الوضع الداكن</th></tr><tr><td>ألوان الوضع الفاتح والداكن</td><td>خلفية القسم والبطاقات والعناوين والنصوص والأزرار. الفاضي بيتبع ألوان الصفحة.</td></tr><tr><td>وضع الألوان</td><td>حسب وضع الصفحة، أو فاتح دائماً، أو داكن دائماً.</td></tr></tbody></table>
+  </details>
+</section>
+
+<section class="comp" id="sticky-buy">
+  <h2>شريط الشراء الثابت</h2>
+  <div class="comp__top">
+    <img src="https://raw.githubusercontent.com/ahmedhelm-y/tw-ramadan-related-content/store-assets/help/sticky-buy.jpg" alt="شريط الشراء الثابت على الجوال" loading="lazy" width="390" height="844">
+    <div>
+      <h3>إيه ده؟</h3><p>شريط ثابت أسفل الشاشة بيظهر بعد ما العميل يعدّي القسم الأول: اسم المنتج والسعر والكمية وزرار الشراء. مناسب لصفحة هبوط لمنتج واحد.</p>
+      <h3>إزاي تستخدمه</h3><ol><li>حطه في آخر الصفحة.</li><li>اختار يظهر على الجوال أو الكمبيوتر أو الاتنين.</li></ol>
+      <h3>نصايح</h3><ul><li>بيختفي لوحده لما يظهر الشراء السريع في الصفحة.</li></ul>
+    </div>
+  </div>
+  <details><summary>كل إعدادات القسم</summary>
+    <table><tbody><tr class="group"><th colspan="2">يظهر أسفل الشاشة بعد تجاوز القسم الأول، ويختفي عند ظهور الشراء السريع</th></tr><tr><td>يظهر على</td><td> الاختيارات: الجوال والكمبيوتر، الجوال فقط، الكمبيوتر فقط.</td></tr><tr><td>إظهار اسم المنتج والسعر</td><td></td></tr><tr><td>إظهار الكمية</td><td>الكمية المختارة تنتقل للشراء السريع</td></tr><tr><td>نص الزر</td><td>في صفحة العروض يظهر نص الزر الرئيسي للصفحة إذا تركته فارغاً</td></tr><tr class="group"><th colspan="2">ألوان الوضع الفاتح</th></tr><tr class="group"><th colspan="2">ألوان الوضع الداكن</th></tr><tr><td>ألوان الوضع الفاتح والداكن</td><td>خلفية القسم والبطاقات والعناوين والنصوص والأزرار. الفاضي بيتبع ألوان الصفحة.</td></tr><tr><td>وضع الألوان</td><td>حسب وضع الصفحة، أو فاتح دائماً، أو داكن دائماً.</td></tr></tbody></table>
+  </details>
+</section>
+
+<section class="block" id="faq">
+<h2>أسئلة ومشاكل شائعة</h2>
+<h3>التاريخ الهجري مختلف يوم عن الرؤية؟</h3>
+<p>غيّر &quot;تقديم أو تأخير يوم&quot; في واجهة رمضان بـ 1 أو -1.</p>
+<h3>بطاقة اليوم مش ظاهرة للعملاء؟</h3>
+<p>البطاقة بتظهر في رمضان بس. قبل رمضان وبعده بتختفي لوحدها.</p>
+<h3>الكود مش ظاهر؟</h3>
+<p>فعّل &quot;عملت الأكواد دي في سلة&quot; في القسم نفسه.</p>
+<h3>المواقيت مختلفة عن مسجدي بدقيقة؟</h3>
+<p>المواعيد بتتحسب بتقويم أم القرى وممكن تختلف دقيقة أو اتنين، والشريط بيقول للعميل يعتمد أذان مسجده.</p>
+<h3>أقدر أستخدم قسم لوحده في صفحة تانية؟</h3>
+<p>أيوه. كل قسم بيشتغل لوحده. لو مفيش واجهة رمضان في الصفحة، الأقسام بتاخد ألوان متجرك والتاريخ الحقيقي.</p>
+</section>
+
+<section class="block" id="support">
+<h2>الدعم وسجل التحديثات</h2>
+<p>لأي سؤال أو مشكلة ابعت على <a href="mailto:ahmedhelmy2722@gmail.com">ahmedhelmy2722@gmail.com</a>، وبنرد خلال يومي عمل بالكتير.</p>
+<p>كل التحديثات والإصلاحات مكتوبة في <a href="https://github.com/ahmedhelm-y/tw-ramadan-related-content/blob/main/CHANGELOG.md">سجل التحديثات</a>.</p>
+</section>
 </main>
 </body>
 </html>

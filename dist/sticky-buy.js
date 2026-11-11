@@ -1,8 +1,7 @@
 import { LitElement as g, nothing as l, html as n } from "lit";
 import { property as x, state as c } from "lit/decorators.js";
 import { unsafeHTML as h } from "lit/directives/unsafe-html.js";
-import { b as w, a as k } from "./buy-D_gsWjfq.js";
-import { e as $, a as q, m as S, q as I, d as H, n as y, b as B, u as C, r as P, v as E, t as u, s as z, c as L } from "./styles-Bs7TKm5O.js";
+import { c as w, d as k, f as $, o as q, q as S, b as I, m as y, s as H, k as B, u as C, r as P, v as E, t as u, x as z, y as L } from "./styles-BzE_GqTJ.js";
 var O = Object.defineProperty, a = (b, t, r, e) => {
   for (var s = void 0, i = b.length - 1, m; i >= 0; i--)
     (m = b[i]) && (s = m(t, r, s) || s);
@@ -47,7 +46,7 @@ class o extends g {
     return this;
   }
   async connectedCallback() {
-    super.connectedCallback(), this.classList.add("rm-host"), $(), q("rm-sticky-buy", j), window.setTimeout(() => this.watch(), 0), this.product = await S(I());
+    super.connectedCallback(), this.classList.add("rm-host"), w(), k("rm-sticky-buy", j), window.setTimeout(() => this.watch(), 0), this.product = await $(q());
   }
   disconnectedCallback() {
     super.disconnectedCallback(), this.observers.forEach((t) => t.disconnect()), this.observers = [], window.removeEventListener("scroll", this.onScroll), document.documentElement.style.removeProperty("--rm-sb-h");
@@ -86,11 +85,11 @@ class o extends g {
     this.busy = !0, this.error = "";
     let t;
     try {
-      t = await w({ quantity: this.quantity, product: this.product });
+      t = await S({ quantity: this.quantity, product: this.product });
     } finally {
       this.busy = !1;
     }
-    t.kind === "error" && (this.error = t.message || "", (e = (r = H()) == null ? void 0 : r.error) == null || e.call(r, t.message));
+    t.kind === "error" && (this.error = t.message || "", (e = (r = I()) == null ? void 0 : r.error) == null || e.call(r, t.message));
   }
   renderPrice() {
     const t = this.product, r = Number(t.is_on_sale ? t.sale_price : t.price) || 0, e = Number(t.regular_price) || 0;
@@ -99,7 +98,7 @@ class o extends g {
   }
   render() {
     var p;
-    const t = B(this.config), r = k();
+    const t = H(this.config), r = B();
     if (r === "none") return l;
     const e = this.product, s = this.inline(), i = s || this.pastHero && !this.checkoutInView, m = String(C(t.show_on) || "both"), f = P(t.buy_text) || (r === "link" ? E().text : "") || u({ ar: "اشتري الآن", en: "Buy now" }), d = Number(e == null ? void 0 : e.max_quantity) || 99, _ = t.show_quantity !== !1 && r !== "link", v = [
       "rm-block rm-sb",

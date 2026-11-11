@@ -49,6 +49,7 @@ export default class TrustStrip extends RmSection {
         ? html`<ol class="rm-ts__steps" style=${`--rm-ts-cols:${Math.min(steps.length, 4)}`}>${steps.map((s) => html`<li class="rm-ts__step">
             ${s.image ? html`<img src=${s.image} alt="" loading="lazy" />` : nothing}
             <h3>${s.title}</h3>${s.text ? html`<p>${s.text}</p>` : nothing}</li>`)}</ol>`
-        : nothing}`, { extraClass: `rm-ts${compact ? " rm-ts--compact" : ""}`, title: !compact });
+        : nothing}
+      ${compact ? nothing : this.renderCta()}`, { extraClass: `rm-ts${compact ? " rm-ts--compact" : ""}`, title: !compact });
   }
 }

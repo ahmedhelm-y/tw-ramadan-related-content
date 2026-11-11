@@ -1,5 +1,5 @@
 import { svg as d } from "lit";
-import { i as u } from "./styles-Bs7TKm5O.js";
+import { i as u } from "./styles-BzE_GqTJ.js";
 const s = 864e5;
 let l = null;
 function h() {

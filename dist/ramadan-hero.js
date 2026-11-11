@@ -1,14 +1,28 @@
-import { nothing as n, html as i } from "lit";
-import { state as f } from "lit/decorators.js";
-import { u, r as o, k as g, l as v, t as c } from "./styles-Bs7TKm5O.js";
-import { d as b, s as w, r as $, l as y, c as d, h as x, b as k } from "./season-DLTLY4O1.js";
-import { R } from "./section-DUtzCvhS.js";
-var C = Object.defineProperty, S = (h, r, e, t) => {
-  for (var a = void 0, l = h.length - 1, s; l >= 0; l--)
-    (s = h[l]) && (a = s(r, e, a) || a);
-  return a && C(r, e, a), a;
+import { nothing as m, html as o } from "lit";
+import { state as b } from "lit/decorators.js";
+import { p as w, u as v, l as y, r as l, n as u, a as $, t as h } from "./styles-BzE_GqTJ.js";
+import { d as x, s as k, r as C, l as P, c as _, h as R, b as S } from "./season-CqOYjCzR.js";
+import { R as j } from "./section-DHdMqSpN.js";
+let g = "", p = [];
+function z(s) {
+  const r = w(s), e = String(v(s.default_mode) || "light"), a = `${JSON.stringify(r)}|${e}`, t = document.documentElement, n = y(e);
+  if (a === g) return n;
+  g = a;
+  for (const i of p) t.style.removeProperty(i);
+  for (const [i, d] of Object.entries(r)) t.style.setProperty(i, d);
+  return p = Object.keys(r), t.classList.toggle("rm-mode-dark", n === "dark"), t.classList.toggle("rm-mode-light", n === "light"), n;
+}
+function D() {
+  const s = document.documentElement;
+  for (const r of p) s.style.removeProperty(r);
+  p = [], g = "", s.classList.remove("rm-mode-dark", "rm-mode-light");
+}
+var E = Object.defineProperty, I = (s, r, e, a) => {
+  for (var t = void 0, n = s.length - 1, i; n >= 0; n--)
+    (i = s[n]) && (t = i(r, e, t) || t);
+  return t && E(r, e, t), t;
 };
-const j = `
+const L = `
 .rm-hero { position: relative; overflow: hidden; }
 .rm-hero__wrap { position: relative; display: grid; gap: 2rem; align-items: center; padding-block: 3rem 3.5rem; }
 @container (min-width: 900px) { .rm-hero__wrap { grid-template-columns: 1.1fr 1fr; gap: 3rem; padding-block: 4.5rem 5rem; } }
@@ -37,59 +51,59 @@ const j = `
 @media (prefers-reduced-motion: reduce) { .rm-hero__lanterns svg { animation: none; } }
 @container (max-width: 520px) { .rm-hero__lanterns svg:nth-child(n + 4) { display: none; } }
 `;
-class p extends R {
+class f extends j {
   constructor() {
     super(...arguments), this.styleId = "ramadan-hero", this.now = Date.now();
   }
   styles() {
-    return j;
+    return L;
   }
   connectedCallback() {
     super.connectedCallback(), this.timer = window.setInterval(() => this.now = Date.now(), 6e4);
   }
   disconnectedCallback() {
-    super.disconnectedCallback(), window.clearInterval(this.timer);
+    super.disconnectedCallback(), window.clearInterval(this.timer), D();
   }
   willUpdate() {
     const r = this.cfg();
-    b({ shift: Math.max(-2, Math.min(2, Number(r.day_shift) || 0)), preview: u(r.preview_phase) || "" });
+    z({ brand_color: r.brand_color, default_mode: r.default_mode }), x({ shift: Math.max(-2, Math.min(2, Number(r.day_shift) || 0)), preview: v(r.preview_phase) || "" });
   }
   texts(r) {
-    const e = this.cfg(), t = r === "last-ten" ? "last" : r, a = { badge: o(e[`${t}_badge`]), title: o(e[`${t}_title`]), subtitle: o(e[`${t}_subtitle`]) };
-    return a.title ? a : { badge: o(e.ramadan_badge), title: o(e.ramadan_title), subtitle: o(e.ramadan_subtitle) };
+    const e = this.cfg(), a = r === "last-ten" ? "last" : r, t = { badge: l(e[`${a}_badge`]), title: l(e[`${a}_title`]), subtitle: l(e[`${a}_subtitle`]) };
+    return t.title ? t : { badge: l(e.ramadan_badge), title: l(e.ramadan_title), subtitle: l(e.ramadan_subtitle) };
   }
   go(r) {
-    var a;
-    const e = g(this.cfg().button_target), t = e && document.querySelector(`[data-rm-section="${e}"]`);
-    t && (r.preventDefault(), t.scrollIntoView({ behavior: (a = window.matchMedia) != null && a.call(window, "(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }));
+    var t;
+    const e = u(this.cfg().button_target), a = e && document.querySelector(`[data-rm-section="${e}"]`);
+    a && (r.preventDefault(), a.scrollIntoView({ behavior: (t = window.matchMedia) != null && t.call(window, "(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }));
   }
   render() {
-    const r = this.cfg(), e = w(this.now), t = this.texts(e.phase), a = v(), l = [String(r.image_1 || ""), String(r.image_2 || "")], s = $(e.h), _ = o(r.button_text);
-    return this.frame(i`
-      ${r.show_lanterns !== !1 ? i`<div class="rm-hero__lanterns" aria-hidden="true">${[46, 80, 30, 64, 40].map((m) => y("", m))}</div>` : n}
+    const r = this.cfg(), e = k(this.now), a = this.texts(e.phase), t = $(), n = [String(r.image_1 || ""), String(r.image_2 || "")], i = C(e.h), d = l(r.button_text);
+    return this.frame(o`
+      ${r.show_lanterns !== !1 ? o`<div class="rm-hero__lanterns" aria-hidden="true">${[46, 80, 30, 64, 40].map((c) => P("", c))}</div>` : m}
       <div class="rm-hero__wrap">
         <div class="rm-hero__text">
-          <span class="rm-hero__pill">${d()} ${x(e.h, a)}
-            ${s ? i`· <b>${c({ ar: `اليوم ${s} من رمضان`, en: `Day ${s} of Ramadan` })}</b>` : n}
-            ${e.phase === "last-ten" ? i`· <b>${c({ ar: "العشر الأواخر", en: "The last ten nights" })}</b>` : n}</span>
-          ${t.badge ? i`<span class="rm-hero__pill">${t.badge}</span>` : n}
-          ${t.title ? i`<h1 class="rm-hero__title">${t.title}</h1>` : n}
-          ${t.subtitle ? i`<p class="rm-hero__sub">${t.subtitle}</p>` : n}
-          ${e.phase === "before" && e.toRamadan ? i`<div class="rm-hero__count"><b>${e.toRamadan}</b><span>${c({ ar: (e.toRamadan === 1, "يوم على رمضان"), en: "days to Ramadan" })}</span></div>` : (e.phase === "ramadan" || e.phase === "last-ten") && e.toEid ? i`<div class="rm-hero__count"><b>${e.toEid}</b><span>${c({ ar: "يوم على العيد", en: "days to Eid" })}</span></div>` : n}
-          ${_ ? i`<a class="rm-btn" href=${`#${g(r.button_target)}`} @click=${(m) => this.go(m)}>${_}</a>` : n}
+          <span class="rm-hero__pill">${_()} ${R(e.h, t)}
+            ${i ? o`· <b>${h({ ar: `اليوم ${i} من رمضان`, en: `Day ${i} of Ramadan` })}</b>` : m}
+            ${e.phase === "last-ten" ? o`· <b>${h({ ar: "العشر الأواخر", en: "The last ten nights" })}</b>` : m}</span>
+          ${a.badge ? o`<span class="rm-hero__pill">${a.badge}</span>` : m}
+          ${a.title ? o`<h1 class="rm-hero__title">${a.title}</h1>` : m}
+          ${a.subtitle ? o`<p class="rm-hero__sub">${a.subtitle}</p>` : m}
+          ${e.phase === "before" && e.toRamadan ? o`<div class="rm-hero__count"><b>${e.toRamadan}</b><span>${h({ ar: (e.toRamadan === 1, "يوم على رمضان"), en: "days to Ramadan" })}</span></div>` : (e.phase === "ramadan" || e.phase === "last-ten") && e.toEid ? o`<div class="rm-hero__count"><b>${e.toEid}</b><span>${h({ ar: "يوم على العيد", en: "days to Eid" })}</span></div>` : m}
+          ${d ? o`<a class="rm-btn" href=${`#${u(r.button_target)}`} @click=${(c) => this.go(c)}>${d}</a>` : m}
         </div>
         <div class="rm-hero__arches">
-          ${d("rm-hero__moon")}
-          ${k("rm-hero__star")}
-          ${l.map((m) => m ? i`<div class="rm-hero__arch"><img src=${m} alt="" fetchpriority="high" /></div>` : i`<div class="rm-hero__arch rm-hero__arch--empty">${d()}</div>`)}
+          ${_("rm-hero__moon")}
+          ${S("rm-hero__star")}
+          ${n.map((c) => c ? o`<div class="rm-hero__arch"><img src=${c} alt="" fetchpriority="high" /></div>` : o`<div class="rm-hero__arch rm-hero__arch--empty">${_()}</div>`)}
         </div>
       </div>`, { hero: !0, title: !1, extraClass: "rm-hero" });
   }
 }
-S([
-  f()
-], p.prototype, "now");
-typeof p < "u" && p.registerSallaComponent("salla-ramadan-hero");
+I([
+  b()
+], f.prototype, "now");
+typeof f < "u" && f.registerSallaComponent("salla-ramadan-hero");
 export {
-  p as default
+  f as default
 };

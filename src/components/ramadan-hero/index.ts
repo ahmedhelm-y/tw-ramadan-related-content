@@ -4,6 +4,7 @@ import { anchorId, getLocale, resolveText, t, unwrapValue } from "../../utils/co
 import { hijriLabel, ramadanDay, type Phase } from "../../utils/hijri";
 import { crescent, lantern, publishSeason, season, star } from "../../utils/season";
 import { RmSection } from "../../utils/section";
+import { applyPageTheme, clearPageTheme } from "../../utils/theme";
 
 const css = `
 .rm-hero { position: relative; overflow: hidden; }
@@ -54,10 +55,13 @@ export default class RamadanHero extends RmSection {
   disconnectedCallback() {
     super.disconnectedCallback();
     window.clearInterval(this.timer);
+    clearPageTheme();
   }
 
   willUpdate() {
     const cfg = this.cfg();
+    // The brand color and page mode are page-wide; the hero's own colors stay on the hero
+    applyPageTheme({ brand_color: cfg.brand_color, default_mode: cfg.default_mode });
     // The other sections follow the hero's moon-sighting shift and preview phase
     publishSeason({ shift: Math.max(-2, Math.min(2, Number(cfg.day_shift) || 0)), preview: (unwrapValue(cfg.preview_phase) || "") as Phase | "" });
   }

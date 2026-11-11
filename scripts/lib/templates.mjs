@@ -5,15 +5,12 @@ import { L, opt } from "./fields.mjs";
 
 const ASSETS = "https://raw.githubusercontent.com/ahmedhelm-y/tw-ramadan-related-content/store-assets/";
 const img = (name) => `${ASSETS}img/${name}.jpg`;
-// Sample logo for the template previews; the merchant swaps it for their own, or clears it to use the store logo
-const logo = { logo: `${ASSETS}logo/logo.png`, logo_dark: `${ASSETS}logo/logo-dark.png` };
 const sel = (value, label) => [opt(value, label)];
 const product = (id, name) => [{ label: name, value: id, key: String(id) }];
 const many = (...list) => list.flatMap(([id, name]) => product(id, name));
 const rows = (prefix, list) => list.map((row) => Object.fromEntries(Object.entries(row).map(([k, v]) => [`${prefix}.${k}`, v])));
 
-export const ORDER = ["page-header", "ramadan-hero", "prayer-bar", "countdown-gift", "moments-shop", "ramadan-bundle", "family-shop", "daily-card",
-  "sadaqah", "last-pieces", "trust-strip", "reviews", "faq", "page-footer", "sticky-buy"];
+// Each template has one goal and only the sections that lead to it; the rest stay in the editor
 
 const MOMENTS = rows("tabs", [
   { label: L("السحور", "Suhoor"), image: img("lantern"), products: many([45289979, "فستان"], [530339837, "فستان"], [819393274, "فستان"], [1728697337, "فستان"]), moment: sel("suhoor", "السحور") },
@@ -74,55 +71,68 @@ const common = (hero) => ({
   reviews: { items: REVIEWS, summary_text: L("أكثر شيء مدحوه: التغليف، والتوصيل قبل العيد.", "What they praise most: the wrapping and delivery before Eid.") },
   faq: { faqs: FAQS },
 });
-const footer = (about) => ({ ...logo, about, show_payments: true });
+// The trust bar as a full section with a title, and the button that leads back to the products
+const trust = (title, cta, target) => ({ badges: BADGES, layout: sel("full", "قسم كامل"), title, cta_text: cta, cta_target: target });
+const reviews = (cta, target) => ({ items: REVIEWS, summary_text: L("أكثر شيء مدحوه: التغليف، والتوصيل قبل العيد.", "What they praise most: the wrapping and delivery before Eid."), cta_text: cta, cta_target: target });
 
 export const templates = [
   {
+    // Goal: shop Ramadan gifts by moment
     name: "ramadan-nights",
     id: "1d7b0f3e-5a2c-4b8e-9f61-7c3e2a9d4b10",
     // الاكسسوارات والهدايا
     category_id: "915304371",
     is_default: true,
-    order: ORDER,
+    order: ["ramadan-hero", "moments-shop", "ramadan-bundle", "countdown-gift", "trust-strip", "reviews", "faq"],
     values: {
-      ...common({}),
-      "page-header": { ...logo, brand_color: "#c9973f", default_mode: sel("dark", "داكن"), sticky: true,
-        nav: rows("nav", [{ label: L("لحظات رمضان", "Moments"), target: "moments" }, { label: L("الباقات", "Bundles"), target: "bundles" }, { label: L("الأسئلة", "FAQ"), target: "faq" }]) },
-      "page-footer": footer(L("هدايا رمضان والعيد، بتغليف يفرّح", "Ramadan and Eid gifts, wrapped to delight")),
+      ...common({ brand_color: "#c9973f", default_mode: sel("dark", "داكن") }),
+      "trust-strip": trust(L("هديتك توصل مغلّفة وفي وقتها", "Your gift arrives wrapped and on time"), L("تسوّق عروض رمضان", "Shop the Ramadan offers"), "moments"),
+      reviews: reviews(L("تسوّق عروض رمضان", "Shop the Ramadan offers"), "moments"),
     },
   },
   {
+    // Goal: order the iftar table bundles before iftar
     name: "iftar-table",
     id: "6a2e9c41-0b7d-4f3a-8e25-b1d4c7f90a62",
     // أغذية وتموينات
     category_id: "1337421468",
     is_default: false,
-    order: ["page-header", "ramadan-hero", "prayer-bar", "ramadan-bundle", "moments-shop", "countdown-gift", "daily-card", "family-shop",
-      "last-pieces", "sadaqah", "trust-strip", "reviews", "faq", "page-footer", "sticky-buy"],
+    order: ["ramadan-hero", "prayer-bar", "ramadan-bundle", "moments-shop", "trust-strip", "reviews", "faq"],
     values: {
-      ...common({ image_1: img("iftar"), image_2: img("candle"), ramadan_title: L("سفرتك في رمضان أحلى", "Your iftar table, sweeter"),
-        ramadan_subtitle: L("تمور وقهوة وضيافة، توصلك قبل الإفطار", "Dates, coffee and hospitality, delivered before iftar") }),
-      "page-header": { ...logo, brand_color: "#a8662f", default_mode: sel("light", "فاتح"), sticky: true,
-        nav: rows("nav", [{ label: L("المواقيت", "Times"), target: "times" }, { label: L("الباقات", "Bundles"), target: "bundles" }, { label: L("الأسئلة", "FAQ"), target: "faq" }]) },
-      "page-footer": footer(L("سفرة رمضان والضيافة", "Ramadan tables and hospitality")),
+      ...common({ image_1: img("iftar"), image_2: img("candle"), button_target: "bundles", button_text: L("شوف باقات السفرة", "See the table bundles"),
+        ramadan_title: L("سفرتك في رمضان أحلى", "Your iftar table, sweeter"), ramadan_subtitle: L("تمور وقهوة وضيافة، توصلك قبل الإفطار", "Dates, coffee and hospitality, delivered before iftar"),
+        brand_color: "#a8662f", default_mode: sel("light", "فاتح") }),
+      "trust-strip": trust(L("توصلك قبل الإفطار", "Delivered before iftar"), L("شوف باقات السفرة", "See the table bundles"), "bundles"),
+      reviews: reviews(L("شوف باقات السفرة", "See the table bundles"), "bundles"),
     },
   },
   {
+    // Goal: buy Eid outfits before the Eid order cut-off
     name: "eid-joy",
     id: "c3f58a07-2d61-4e9b-a7c4-5e0b8d1f6293",
     // ازياء
     category_id: "814202285",
     is_default: false,
-    order: ["page-header", "ramadan-hero", "countdown-gift", "family-shop", "last-pieces", "ramadan-bundle", "moments-shop", "prayer-bar",
-      "daily-card", "sadaqah", "trust-strip", "reviews", "faq", "page-footer", "sticky-buy"],
+    order: ["ramadan-hero", "last-pieces", "family-shop", "countdown-gift", "trust-strip", "reviews", "faq"],
     values: {
       ...common({ preview_phase: sel("last-ten", "العشر الأواخر"), image_1: img("eid-gift"), image_2: img("unboxing"), button_target: "family", button_text: L("تسوّق كسوة العيد", "Shop Eid outfits"),
-        last_title: L("كسوة العيد للعيلة كلها", "Eid outfits for the whole family"), last_subtitle: L("اطلب قبل 24 رمضان لتصلك قبل العيد", "Order by 24 Ramadan to receive it before Eid") }),
+        last_title: L("كسوة العيد للعيلة كلها", "Eid outfits for the whole family"), last_subtitle: L("اطلب قبل 24 رمضان لتصلك قبل العيد", "Order by 24 Ramadan to receive it before Eid"),
+        brand_color: "#1f7a5a", default_mode: sel("light", "فاتح") }),
       "countdown-gift": { mode: sel("bar", "شريط في الصفحة"), ramadan_code: "EID15", eid_code: "EID20",
         ramadan_text: L("عيدية مبكرة: خصم 15% على كسوة العيد", "An early Eidiya: 15% off Eid outfits") },
-      "page-header": { ...logo, brand_color: "#1f7a5a", default_mode: sel("light", "فاتح"), sticky: true,
-        nav: rows("nav", [{ label: L("للعيلة", "Family"), target: "family" }, { label: L("آخر القطع", "Last pieces"), target: "last" }, { label: L("الأسئلة", "FAQ"), target: "faq" }]) },
-      "page-footer": footer(L("كسوة العيد وهداياه", "Eid outfits and gifts")),
+      "trust-strip": trust(L("كسوة العيد توصل قبل العيد", "Eid outfits that arrive before Eid"), L("تسوّق كسوة العيد", "Shop Eid outfits"), "family"),
+      reviews: reviews(L("تسوّق كسوة العيد", "Shop Eid outfits"), "family"),
     },
   },
 ];
+
+// Every section filled in, for the harness, the store screenshots and the help page. Not a Salla template.
+export const showcase = {
+  name: "showcase",
+  order: ["ramadan-hero", "prayer-bar", "countdown-gift", "moments-shop", "ramadan-bundle", "family-shop", "sadaqah", "daily-card", "last-pieces", "trust-strip", "reviews", "faq", "sticky-buy"],
+  values: {
+    ...common({ brand_color: "#c9973f", default_mode: sel("dark", "داكن") }),
+    "trust-strip": trust(L("هديتك توصل مغلّفة وفي وقتها", "Your gift arrives wrapped and on time"), L("تسوّق عروض رمضان", "Shop the Ramadan offers"), "moments"),
+    reviews: reviews(L("تسوّق عروض رمضان", "Shop the Ramadan offers"), "moments"),
+  },
+};
