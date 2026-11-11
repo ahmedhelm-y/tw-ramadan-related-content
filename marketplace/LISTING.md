@@ -72,14 +72,14 @@ https://github.com/ahmedhelm-y/tw-ramadan-related-content/tree/store-assets/mark
 
 ## بيانات الدعم
 
-سلة رفضت موقع الشركة لأن الحساب فردي، فموقع الدعم بقى حساب X الشخصي. لسه محتاجين رقم جوال ولينك شات.
+سلة رفضت موقع الشركة لأن الحساب فردي، فموقع الدعم بقى حساب X الشخصي، ومعاه رقم الجوال ولينك الواتساب.
 
 | الخانة | القيمة |
 |---|---|
 | Support email | ahmedhelmy2722@gmail.com |
 | Support website | https://x.com/ah_helmy22 |
-| Support phone | ⚠️ رقم جوال للدعم |
-| Live chat | ⚠️ لينك واتساب أو تيليجرام، مثل `https://wa.me/9665xxxxxxxx` |
+| Support phone | +966545178179 |
+| Live chat | https://wa.me/966545178179 |
 | Documentation link | https://ahmedhelm-y.github.io/tw-ramadan-related-content/marketplace/help.html (بعد تفعيل GitHub Pages) |
 | Support service | Email Support |
 
